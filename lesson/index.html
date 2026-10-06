@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Инверсия в немецком: глагол всегда второй. Схемы, анимации, видео и упражнение с ответами.">
+<meta property="og:title" content="Обратный порядок слов в немецком">
+<meta property="og:description" content="Инверсия в немецком: глагол всегда второй. Схемы, анимации, видео и упражнение с ответами.">
+<meta name="theme-color" content="#7652BB">
+<link rel="icon" href="../media/logo.webp">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
+<title>Обратный порядок слов в немецком</title>
+<link rel="preload" href="../assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/inter-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
+<script defer src="../assets/gsap-bundle.min.js"></script>
+
+<style>
+:root{
+  color-scheme: light;
+  --mint:#D3F7E1; --mint-2:#BDF2D1; --mint-3:#EEFDF3;
+  --purple:#7652BB; --purple-2:#8C6CE0; --purple-3:#B39BF2; --lav:#E7DEFC; --lav-2:#F3EEFF;
+  --yellow:#F9AD2C; --butter:#FDE7B0; --lime:#E5EE7C; --green:#466948; --grass:#5CC46B; --grass-2:#86D97E;
+  --sand:#F6C88A; --sand-2:#FBE3B8; --red:#E5574C; --sky:#D3EEFF; --teal:#3FD0DF;
+  --ink:#111114; --ink-2:#3A3A42; --mute:#6C6C76; --line:#ECECF2;
+  --sh:0 14px 34px -10px rgba(64,40,140,.18), 0 2px 6px rgba(64,40,140,.06);
+  --sh-2:0 30px 70px -20px rgba(64,40,140,.35);
+  --f:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --gut:16px; --r:22px;
+}
+@media (min-width:760px){:root{--gut:32px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:#8C6CE0 #EAFBF0}
+body{background:#fff;color:var(--ink);font:400 16px/1.55 var(--f);-webkit-font-smoothing:antialiased;font-optical-sizing:auto}
+main{overflow-x:clip;position:relative}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:8px}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.14em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar{width:12px;height:8px}
+::-webkit-scrollbar-track{background:linear-gradient(180deg,#EAFBF0,#D3F7E1)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#A58AF0,#7652BB);border-radius:99px;border:3px solid #EAFBF0}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#FBC35A,#F9AD2C)}
+.hsc{scrollbar-width:thin;scrollbar-color:var(--purple-3) transparent}
+.hsc::-webkit-scrollbar{height:6px}
+.hsc::-webkit-scrollbar-track{background:transparent}
+.hsc::-webkit-scrollbar-thumb{border:0;background:var(--purple-3)}
+
+/* owl road scroll rail */
+.rail{position:fixed;right:5px;top:16vh;bottom:16vh;width:12px;z-index:60;pointer-events:none}
+.rail .road{position:absolute;inset:0;border-radius:99px;background:var(--sand-2);box-shadow:inset 0 0 0 2px #F2B064}
+.rail .road::after{content:"";position:absolute;left:50%;top:10px;bottom:10px;border-left:2px dashed rgba(242,176,100,.9);translate:-1px 0}
+.rail .rfill{position:absolute;left:0;right:0;top:0;height:0;border-radius:99px;background:linear-gradient(180deg,var(--purple-3),var(--purple))}
+.rail .rdot{position:absolute;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--purple-3);pointer-events:auto;cursor:pointer;transition:scale .25s,background .25s}
+.rail .rdot.on{background:var(--purple);box-shadow:0 0 0 2px #fff,0 0 0 4px var(--purple-3)}
+.rail .rdot span{position:absolute;right:20px;top:50%;translate:0 -50%;white-space:nowrap;background:#fff;border-radius:99px;padding:5px 12px 5px 10px;font:500 13px var(--f);box-shadow:var(--sh);opacity:0;pointer-events:none;transition:opacity .2s,translate .2s;display:flex;gap:7px;align-items:center}
+.rail .rdot span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 3px var(--lav)}
+.rail .rdot:hover{scale:1.4}
+.rail .rdot:hover span{opacity:1;translate:-4px -50%}
+.rail .rowl{position:absolute;left:50%;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:#fff;box-shadow:var(--sh);display:grid;place-items:center;will-change:transform}
+.rail .rowl svg{width:30px;height:34px;margin-top:2px}
+.rail .rpct{position:absolute;right:44px;top:50%;translate:0 -50%;font:700 11px var(--f);color:var(--purple);background:#fff;border-radius:99px;padding:3px 8px;box-shadow:var(--sh);opacity:0;transition:opacity .3s}
+.rail.moving .rpct{opacity:1}
+@media (max-width:759px){.rail{right:3px;width:8px}.rail .rowl{width:30px;height:30px;margin:-15px 0 0 -15px}.rail .rowl svg{width:23px;height:27px}.rail .rdot{width:8px;height:8px;margin:-4px 0 0 -4px}.rail .rdot span{display:none}}
+
+/* ---------- type ---------- */
+.h1,.h2,.h3{font-family:var(--f);font-variation-settings:"opsz" 32;margin:0;color:var(--ink)}
+.h1{font-weight:700;font-size:clamp(36px,10.6vw,74px);line-height:1.02;letter-spacing:-.045em}
+.h2{font-weight:600;font-size:clamp(29px,7.8vw,54px);line-height:1.07;letter-spacing:-.04em;text-align:center}
+.h3{font-weight:600;font-size:clamp(21px,5.4vw,30px);line-height:1.15;letter-spacing:-.03em}
+.acc{color:var(--purple)}
+.h2 .wd,.h1 .wd{display:inline-block}
+.sub{color:var(--mute);font-size:15px;line-height:1.55;text-align:center;max-width:36ch;margin:14px auto 0}
+.lead{color:var(--ink-2);font-size:17px;line-height:1.6;max-width:46ch;margin:16px auto 0;text-align:center}
+.de{font-weight:600;color:var(--ink)}
+
+/* ---------- atoms ---------- */
+.tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 13px;background:#fff;border-radius:999px;box-shadow:var(--sh);font:500 15px/1.2 var(--f);color:var(--ink)}
+.tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 4px var(--lav)}
+.tagrow{display:flex;justify-content:center;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:999px;border:0;background:var(--purple);color:#fff;font:600 15px/1 var(--f);text-decoration:none;box-shadow:0 14px 26px -10px rgba(118,82,187,.8),inset 0 -3px 0 rgba(0,0,0,.14);transition:scale .2s,background .2s}
+.btn:hover{scale:1.03;background:#6A47B0}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:var(--sh)}
+.btn.ghost:hover{background:var(--lav-2)}
+.btn.sm{padding:10px 16px;font-size:14px}
+.btn.yel{background:var(--yellow);color:var(--ink);box-shadow:0 14px 26px -10px rgba(249,173,44,.9),inset 0 -3px 0 rgba(0,0,0,.1)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.say{width:36px;height:36px;border-radius:50%;border:0;background:var(--lav);color:var(--purple);display:inline-grid;place-items:center;flex:none;transition:background .2s,color .2s,scale .2s}
+.say svg{width:17px;height:17px;fill:currentColor}
+.say:hover{scale:1.08}
+.say.on{background:var(--purple);color:#fff}
+.no-tts .say{display:none}
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh)}
+section{position:relative;padding:76px var(--gut)}
+.wrap{max-width:1120px;margin:0 auto;position:relative}
+.mintbg{background:linear-gradient(180deg,#fff 0,var(--mint-3) 18%,var(--mint) 100%)}
+.swoosh{position:absolute;pointer-events:none;width:46%;max-width:420px;height:auto;opacity:.95}
+.sp{height:28px}
+
+/* ---------- header ---------- */
+.top{position:fixed;left:0;right:0;top:0;z-index:50;padding:10px var(--gut);display:flex;justify-content:space-between;align-items:center;transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(255,255,255,.94);box-shadow:0 6px 20px -12px rgba(64,40,140,.35)}
+.logo{display:flex;align-items:center;gap:9px;font:700 17px var(--f);letter-spacing:-.02em;text-decoration:none}
+.logo img{width:32px;height:32px;border-radius:10px;background:#fff;box-shadow:var(--sh)}
+.logo small{display:block;font:500 11px var(--f);color:var(--ink-2);letter-spacing:0}
+
+/* ---------- hero ---------- */
+.hero{padding:96px var(--gut) 0;background:linear-gradient(180deg,#3ACFDE 0%,#6FE2D6 38%,#A9F1CB 70%,#C9F7D8 100%);overflow:hidden}
+.hero .wrap{display:grid;gap:8px}
+.hero .txt{position:relative;z-index:3;animation:rise .9s cubic-bezier(.2,.9,.3,1.2) both}
+.hero .tag{background:rgba(255,255,255,.9)}
+.hero p.hp{font-size:16px;line-height:1.55;color:#1F3A3A;max-width:34ch;margin:16px 0 0}
+.hero .say-line{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:rgba(255,255,255,.75);padding:7px 7px 7px 16px;border-radius:99px;font-weight:600}
+.hero .say-line b{color:var(--purple)}
+.cloud{position:absolute;pointer-events:none;z-index:1;fill:#fff}
+.cloud.c1{width:150px;left:-30px;top:120px;animation:drift 38s linear infinite alternate}
+.cloud.c2{width:110px;right:-20px;top:70px;animation:drift 30s linear infinite alternate-reverse;opacity:.9}
+.cloud.c3{width:90px;right:10%;top:640px;animation:drift 44s linear infinite alternate;opacity:.85}
+@keyframes drift{to{translate:60px 0}}
+@keyframes rise{from{translate:0 40px;opacity:0}}
+.stage{position:relative;margin:0 calc(var(--gut) * -1)}
+.scene{display:block;width:100%;height:auto}
+.scene .bob{animation:bob 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes bob{50%{translate:0 -5px;rotate:-2deg}}
+.lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);animation:blink 5.5s infinite}
+@keyframes blink{0%,93%,100%{transform:scaleY(0)}96%{transform:scaleY(1)}}
+.wl{transform-box:fill-box;transform-origin:80% 10%;animation:flap 3.2s ease-in-out infinite}
+.wr{transform-box:fill-box;transform-origin:20% 10%;animation:flap 3.2s ease-in-out infinite reverse}
+@keyframes flap{50%{rotate:-6deg}}
+.hero .phone{position:relative;z-index:4;margin:-150px auto -96px;animation:phoneUp 1.1s .25s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes phoneUp{from{translate:0 80px;rotate:6deg}}
+@media (min-width:900px){
+  .hero{padding-top:120px}
+  .hero .wrap{grid-template-columns:1.05fr 1fr;align-items:end}
+  .hero .txt{padding-bottom:160px}
+  .stage{margin:0 calc(var(--gut) * -1) 0 -40px}
+  .hero .phone{position:absolute;left:calc(50% - 30px);bottom:-150px;margin:0;width:240px}
+}
+
+/* ---------- phone ---------- */
+.phone{width:min(262px,74vw);aspect-ratio:9/19;background:#15131c;border-radius:42px;padding:9px;box-shadow:var(--sh-2),inset 0 0 0 2px #2c2838}
+.phone .scr{background:#fff;border-radius:34px;overflow:hidden;height:100%;display:flex;flex-direction:column;position:relative}
+.phone .notch{position:absolute;top:9px;left:50%;translate:-50% 0;width:34%;height:22px;background:#15131c;border-radius:20px;z-index:5}
+.phone .sbar{position:absolute;top:12px;left:22px;right:20px;display:flex;justify-content:space-between;font:600 11px var(--f);z-index:4;color:#0E2E2E}
+.phone .sbar i{display:inline-block;width:18px;height:9px;border-radius:3px;border:1.5px solid currentColor;vertical-align:-1px}
+.ph-top{position:relative;height:40%;background:linear-gradient(180deg,#46D3C6,#6FD6A0);overflow:hidden;flex:none}
+.ph-top svg.room{position:absolute;inset:0;width:100%;height:100%}
+.ph-hi{position:absolute;left:12px;top:38px;display:flex;gap:7px;align-items:center;background:rgba(255,255,255,.88);border-radius:99px;padding:4px 10px 4px 4px;font:600 9.5px/1.2 var(--f);z-index:2}
+.ph-hi b{width:22px;height:22px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:10px}
+.ph-hi small{display:block;font-weight:500;color:var(--mute);font-size:8.5px}
+.ph-card{margin:-58px 10px 0;position:relative;z-index:3;background:rgba(94,74,142,.93);color:#fff;border-radius:16px;padding:10px 11px;display:grid;grid-template-columns:30px 1fr;gap:3px 9px;align-items:center}
+.ph-card .av{width:30px;height:30px;border-radius:50%;background:#FDE7B0;display:grid;place-items:center;grid-row:span 2}
+.ph-card .av svg{width:22px;height:26px}
+.ph-card b{font:600 11.5px var(--f)}
+.ph-card small{font-size:9px;opacity:.75}
+.ph-card .pp{grid-column:1/-1;display:flex;gap:6px;margin-top:5px}
+.ph-card .pp span{background:rgba(255,255,255,.14);border-radius:99px;padding:3px 8px;font-size:9px;display:flex;gap:4px;align-items:center}
+.ph-body{padding:10px 12px 0;flex:1;display:flex;flex-direction:column;gap:7px;min-height:0}
+.ph-h{display:flex;justify-content:space-between;font:600 11px var(--f);margin:0}
+.ph-h small{font-weight:500;color:var(--mute);font-size:9px}
+.mg{position:relative;height:46px;border-radius:12px;background:var(--mint-3);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.mg>i{border-right:1px dashed #CDEFD9}
+.mg>i:nth-child(2){background:var(--lav)}
+.mg .tk{position:absolute;left:calc(var(--c) * 25% + 12.5%);top:50%;translate:-50% -50%;font:600 10px/1 var(--f);padding:6px 6px;border-radius:99px;background:#fff;box-shadow:0 3px 8px -3px rgba(64,40,140,.3);white-space:nowrap;transition:left .75s cubic-bezier(.5,1.5,.45,1)}
+.mg .tk.v{background:var(--purple);color:#fff}
+.mg-l{font:600 9px var(--f);color:var(--purple);text-align:center;margin:-2px 0 0}
+.ph-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ph-stats div{border-radius:12px;box-shadow:0 0 0 1px var(--line);padding:7px 8px;font-size:8.5px;color:var(--mute)}
+.ph-stats b{display:block;font:700 15px/1.2 var(--f);color:var(--ink);margin-top:2px}
+.ph-stats svg{width:100%;height:16px;margin-top:2px}
+.ph-nav{display:flex;justify-content:space-around;align-items:center;padding:8px 10px 12px;flex:none}
+.ph-nav span{width:26px;height:26px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-size:12px;color:var(--mute)}
+.ph-nav span.on{background:var(--purple);color:#fff;width:32px;height:32px}
+
+/* ---------- story (reviews) ---------- */
+.revs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:26px var(--gut) 18px;margin:0 calc(var(--gut) * -1)}
+.rev{flex:0 0 min(300px,82vw);scroll-snap-align:center;border-radius:20px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:14px;font-size:14.5px;line-height:1.55;color:#2A2A30}
+.rev:nth-child(1){background:#FDE6B3}
+.rev:nth-child(2){background:#DCD1FA}
+.rev:nth-child(3){background:#CFEBFB}
+.rev p{margin:0}
+.rev .who{margin-top:auto;display:flex;align-items:center;gap:10px;font:600 13px var(--f)}
+.rev .who small{display:block;font-weight:400;color:var(--mute);font-size:11.5px}
+.rev .who .av{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 14px var(--f);color:var(--purple);flex:none}
+.rev .who .n{margin-left:auto;display:flex;gap:4px;align-items:center;font-size:12px;color:var(--ink-2)}
+.rev .who .n svg{color:var(--yellow);fill:var(--yellow)}
+.rev em{font-style:normal;font-weight:600;color:var(--purple)}
+.arrows{display:flex;justify-content:center;gap:12px}
+.arrows button{width:42px;height:42px;border-radius:50%;border:0;background:#fff;box-shadow:var(--sh);display:grid;place-items:center;font-size:18px;transition:scale .2s}
+.arrows button:last-child{background:var(--purple);color:#fff}
+.arrows button:hover{scale:1.08}
+.punch{text-align:center;font:600 19px/1.35 var(--f);letter-spacing:-.02em;margin:26px auto 0;max-width:24ch}
+@media (min-width:900px){.revs{justify-content:center;overflow:visible}.rev{flex-basis:320px}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;gap:0;margin-top:34px}
+.stat{text-align:center;padding:24px 10px}
+.stat+.stat{border-top:1px solid var(--line)}
+.stat .num{font:600 clamp(58px,17vw,84px)/1 var(--f);letter-spacing:-.05em;font-variation-settings:"opsz" 32;display:inline-flex;align-items:baseline;gap:4px}
+.stat .num small{font-size:18px;letter-spacing:-.01em;color:var(--purple);font-weight:600}
+.stat .roll{display:inline-block;min-width:.62em}
+.stat p{color:var(--mute);font-size:14px;max-width:28ch;margin:10px auto 0}
+@media (min-width:760px){.stats{grid-template-columns:repeat(3,1fr)}.stat+.stat{border-top:0;border-left:1px solid var(--line)}}
+
+/* ---------- route (feature cards) ---------- */
+.feats{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px var(--gut) 20px;margin:0 calc(var(--gut) * -1)}
+.feat{flex:0 0 min(250px,70vw);scroll-snap-align:start;background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:translate .25s}
+.feat:hover{translate:0 -6px}
+.feat .ill{position:relative;height:150px;overflow:hidden}
+.feat .ill svg.o{position:absolute;width:86px;height:100px;left:50%;bottom:-6px;translate:-50% 0}
+.feat .ill .hill{position:absolute;left:-10%;right:-10%;bottom:-40px;height:70px;border-radius:50%;background:rgba(255,255,255,.28)}
+.feat .ill .bad{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:14px;background:#fff;display:grid;place-items:center;color:var(--purple);font-size:20px;box-shadow:0 8px 18px -8px rgba(0,0,0,.3)}
+.feat .ill .no{position:absolute;left:14px;top:12px;font:700 40px/1 var(--f);color:rgba(255,255,255,.85);letter-spacing:-.04em}
+.feat .bd{padding:14px 16px 18px}
+.feat b{font:600 16px var(--f);letter-spacing:-.02em}
+.feat p{margin:6px 0 0;font-size:13px;color:var(--mute);line-height:1.5}
+.g1{background:linear-gradient(160deg,#6C7CFF,#A49BFF)}
+.g2{background:linear-gradient(160deg,#2FD3E6,#7EE8C9)}
+.g3{background:linear-gradient(160deg,#58A8FF,#9AD6FF)}
+.g4{background:linear-gradient(160deg,#B08CFF,#E0B5FF)}
+.g5{background:linear-gradient(160deg,#F9AD2C,#FFD978)}
+.g6{background:linear-gradient(160deg,#4FC26B,#B7EC7A)}
+@media (min-width:1000px){.feats{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:34px 0 0}}
+
+/* ---------- step 1: sentence grid ---------- */
+.sg{margin:34px auto 0;max-width:620px;padding:16px;border-radius:26px;background:#fff;box-shadow:var(--sh)}
+.sgrid{position:relative;height:250px;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.sgrid .col{position:relative;border-radius:12px;background:linear-gradient(180deg,#EEF59B 0%,#A6EFCB 100%);overflow:hidden}
+.sgrid .col .fl{position:absolute;left:50%;bottom:-6px;width:56px;height:58px;translate:-50% 0}
+.sgrid .col.vb{background:linear-gradient(180deg,#8C6CE0,#6A47B0)}
+.sgrid .col .cn{position:absolute;top:8px;left:0;right:0;text-align:center;font:700 12px var(--f);color:rgba(17,17,20,.45)}
+.sgrid .col.vb .cn{color:rgba(255,255,255,.7)}
+.sgrid .col .vt{position:absolute;left:50%;top:58%;translate:-50% -50%;rotate:-90deg;color:#fff;font:600 13px var(--f);white-space:nowrap;display:flex;gap:7px;align-items:center;opacity:.9}
+.sgrid .col .vt::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
+.sgrid .lbl{position:absolute;bottom:10px;left:0;right:0;text-align:center;font:600 11px var(--f);color:var(--green);opacity:0;translate:0 8px;transition:opacity .4s,translate .4s}
+.sgrid .col.vb .lbl{color:#fff}
+.sgrid.labels .lbl{opacity:1;translate:0 0}
+.sgrid .tk{position:absolute;z-index:3;left:calc(var(--c) * 25% + 12.5%);top:var(--y,50%);translate:-50% -50%;padding:9px 11px;border-radius:12px;background:#fff;font:600 14px/1 var(--f);white-space:nowrap;box-shadow:0 10px 20px -8px rgba(40,30,90,.35);transition:left .8s cubic-bezier(.45,1.45,.45,1),top .8s cubic-bezier(.45,1.45,.45,1),background .3s,color .3s,scale .3s}
+.sgrid .tk.v{background:var(--yellow)}
+.sgrid .tk.hot{scale:1.12;background:var(--ink);color:#fff}
+.sgrid .tk.v.glow{animation:glow 1.2s ease-in-out 2}
+@keyframes glow{50%{box-shadow:0 0 0 8px rgba(249,173,44,.35),0 10px 20px -8px rgba(40,30,90,.35)}}
+@media (max-width:420px){.sgrid .tk{font-size:12.5px;padding:8px 8px}}
+.cap{min-height:74px;margin:16px 4px 0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.cap b{color:var(--ink)}
+.ctrl{display:flex;align-items:center;gap:10px;margin-top:8px}
+.ctrl .nav{width:40px;height:40px;border-radius:50%;border:0;background:var(--lav);color:var(--purple);display:grid;place-items:center}
+.dots{display:flex;gap:6px;flex:1;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:99px;background:var(--line);transition:width .3s,background .3s}
+.dots i.on{width:22px;background:var(--purple)}
+
+/* RU vs DE chart */
+.vs{display:grid;gap:14px;margin:30px auto 0;max-width:900px}
+.vsc{padding:18px}
+.vsc h4{margin:0 0 12px;display:flex;align-items:center;gap:10px;font:600 17px var(--f);letter-spacing:-.02em}
+.vsc h4 span{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--mint);color:var(--green)}
+.vsc.de h4 span{background:var(--lav);color:var(--purple)}
+.vsc ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.vsc li{display:flex;align-items:center;gap:10px;font-size:14.5px;padding:9px 12px;border-radius:12px;background:var(--mint-3);opacity:.25;translate:-14px 0;transition:opacity .45s calc(var(--i) * .22s),translate .45s calc(var(--i) * .22s)}
+.vsc.de li{background:var(--lav-2)}
+.vsc li .m{margin-left:auto;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:14px;color:#fff;background:var(--grass);scale:0;transition:scale .4s cubic-bezier(.4,1.8,.5,1) calc(var(--i) * .22s + .25s)}
+.vsc li.no .m{background:var(--red)}
+.vsc li.q .m{background:var(--yellow)}
+.vsc li.no{text-decoration:line-through;text-decoration-color:rgba(229,87,76,.6)}
+.vs.go li{opacity:1;translate:0 0}
+.vs.go li .m{scale:1}
+.bars{padding:18px;display:grid;gap:14px}
+.bar{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:10px;font:600 14px var(--f)}
+.bar .tr{height:16px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar .tr i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.4s cubic-bezier(.3,1.2,.4,1) 1.2s}
+.bar .tr i.ru{background:linear-gradient(90deg,var(--grass),#9BE38C)}
+.bar .tr i.dee{background:linear-gradient(90deg,var(--purple),var(--purple-3))}
+.bar .tr i.qq{background:var(--yellow)}
+.vs.go .bar .tr i{width:var(--w)}
+.bars small{color:var(--mute);font-size:12.5px;font-weight:500}
+@media (min-width:760px){.vs{grid-template-columns:1fr 1fr}.vs .bars,.vs .quote{grid-column:1/-1}}
+.quote{position:relative;padding:20px 20px 18px 56px;border-radius:20px;background:var(--ink);color:#fff;font-size:15.5px;line-height:1.55}
+.quote svg.q{position:absolute;left:18px;top:20px;font-size:24px;color:var(--yellow)}
+.quote b{color:var(--yellow);font-weight:600}
+.quote small{display:block;margin-top:10px;color:rgba(255,255,255,.55);font-size:12px}
+
+/* ---------- step 2: street ---------- */
+.tabs{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.tabs button{border:0;border-radius:99px;padding:10px 18px;background:#fff;box-shadow:var(--sh);font:600 14px var(--f);display:flex;gap:8px;align-items:center;transition:background .2s,color .2s}
+.tabs button[aria-pressed=true]{background:var(--purple);color:#fff}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px auto 0;max-width:560px}
+.chips button{border:0;border-radius:99px;padding:9px 14px;background:var(--butter);font:600 14px var(--f);transition:background .2s,scale .2s}
+.chips button:hover{scale:1.05}
+.chips button[aria-pressed=true]{background:var(--yellow)}
+.street{position:relative;margin:26px auto 0;max-width:720px;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#45D2DE 0%,#8BE9CF 55%,#B5F2C9 100%);padding:34px 10px 0}
+.street .cl{position:absolute;width:90px;fill:#fff;top:12px;left:10px;opacity:.9}
+.street .cl.b{left:auto;right:8px;top:30px;width:70px}
+.houses{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:end}
+.hs{position:relative;text-align:center}
+.hs svg.hb{width:100%;height:auto;display:block}
+.hs .rn{position:absolute;left:50%;top:6%;translate:-50% 0;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--purple);font:700 14px/28px var(--f);box-shadow:0 4px 10px -3px rgba(0,0,0,.25)}
+.hs .lb{position:absolute;left:50%;top:76%;translate:-50% -50%;max-width:118%;white-space:nowrap;background:#fff;border-radius:99px;padding:7px 10px;font:600 13px/1 var(--f);box-shadow:0 8px 16px -8px rgba(40,30,90,.45);z-index:3}
+.hs.h2v .lb{background:var(--purple);color:#fff}
+.hs .q{display:block;margin-top:6px;font:600 11.5px var(--f);color:#1F4A3A}
+.hs.h2v svg.hb{filter:drop-shadow(0 0 12px rgba(255,255,255,.6))}
+@media (max-width:420px){.hs .lb{font-size:11.5px;padding:6px 8px}}
+.ground{position:relative;z-index:1;margin:-14px -10px 0;height:120px}
+.ground svg.gr{position:absolute;inset:0;width:100%;height:100%}
+.rest{position:absolute;z-index:3;right:12px;bottom:18px;background:#fff;border-radius:12px;padding:8px 12px;font:600 13px var(--f);box-shadow:0 8px 16px -8px rgba(40,30,90,.45);display:flex;gap:8px;align-items:center}
+.rest small{font-size:10px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.wowl{position:absolute;z-index:4;left:0;bottom:16px;width:52px;height:60px}
+.flychip{position:absolute;z-index:9;border-radius:99px;padding:9px 14px;background:var(--yellow);font:600 14px/1 var(--f);pointer-events:none;white-space:nowrap}
+.sent{display:flex;align-items:center;gap:12px;justify-content:space-between;margin:16px auto 0;max-width:720px;padding:14px 14px 14px 18px}
+.sent .de{font-size:17px;letter-spacing:-.01em}
+.sent .de .p1{color:#B9770E}.sent .de .p2{color:var(--purple)}.sent .de .p3{color:var(--green)}
+.sent p{margin:3px 0 0;font-size:13.5px;color:var(--mute)}
+
+/* decision tree */
+.dec{margin:30px auto 0;max-width:620px}
+.droot{padding:16px 18px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+.droot b{font:600 15px var(--f)}
+.dq{display:inline-block;background:var(--ink);color:#fff;border-radius:99px;padding:10px 16px;font:600 15px var(--f)}
+.dq u{text-decoration:none;background:var(--yellow);color:var(--ink);border-radius:6px;padding:0 4px}
+.dbr{position:relative;display:grid;gap:10px;margin-top:14px;padding-left:30px}
+.dbr .rl{position:absolute;left:11px;top:-14px;bottom:30px;width:4px;border-radius:9px;background:var(--line)}
+.dbr .rl i{position:absolute;left:0;top:0;width:100%;height:0;border-radius:9px;background:var(--purple);transition:height .6s cubic-bezier(.4,1.2,.4,1)}
+.br{position:relative;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:13px 14px;border-radius:16px;background:#fff;box-shadow:0 0 0 1.5px var(--line);transition:box-shadow .3s,background .3s,scale .3s}
+.br::before{content:"";position:absolute;left:-23px;top:50%;width:19px;height:3px;background:var(--line);transition:background .3s}
+.br b{font:600 14.5px var(--f)}
+.br .fm{display:flex;gap:4px}
+.br .fm i{font-style:normal;font:700 11px var(--f);padding:5px 7px;border-radius:7px;background:var(--line)}
+.br .fm i.v{background:var(--purple);color:#fff}
+.br small{grid-column:1/-1;color:var(--mute);font-size:13px}
+.br .kind{font:600 10.5px var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.br.hit{background:var(--lav-2);box-shadow:0 0 0 2px var(--purple),var(--sh);scale:1.02}
+.br.hit::before{background:var(--purple)}
+
+/* ---------- step 3: bracket ---------- */
+.brk{position:relative;margin:26px auto 0;max-width:560px;padding:18px 70px 18px 16px}
+.brk .rw{position:relative;display:flex;align-items:center;gap:12px;height:52px}
+.brk .rw .n{width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center;font:700 13px var(--f);flex:none}
+.brk .rw.r2 .n{background:var(--lav);color:var(--purple)}
+.brk .rw.r5 .n{background:var(--lav);color:var(--purple)}
+.brk .tok{padding:10px 13px;border-radius:12px;background:var(--mint-3);font:600 15px/1 var(--f);white-space:nowrap}
+.brk .slot{min-width:84px;height:36px;border-radius:12px;border:2px dashed var(--purple-3)}
+.brk .whole,.brk .head,.brk .tail{padding:10px 13px;border-radius:12px;font:600 15px/1 var(--f);white-space:nowrap}
+.brk .whole{background:linear-gradient(90deg,var(--purple) 0 50%,var(--purple-2) 50%);color:#fff}
+.brk .head{background:var(--purple);color:#fff}
+.brk .tail{position:absolute;background:var(--purple-2);color:#fff;z-index:4}
+.brk .hide{display:none}
+.brk .tail.ghost{opacity:0}
+.brk .clamp{position:absolute;right:22px;width:26px;border:3px solid var(--purple);border-left:0;border-radius:0 16px 16px 0;clip-path:inset(0 -60px 100% 0);transition:clip-path .9s cubic-bezier(.5,0,.3,1)}
+.brk.draw .clamp{clip-path:inset(0 -60px 0 0)}
+.brk .clamp span{position:absolute;left:100%;top:50%;translate:-50% -50%;rotate:90deg;background:var(--yellow);color:var(--ink);font:700 10.5px var(--f);letter-spacing:.06em;padding:4px 9px;border-radius:99px;white-space:nowrap;margin-left:14px}
+.brk .css-fly{transition:translate .9s cubic-bezier(.5,0,.3,1)}
+.brk-cap{text-align:center;max-width:560px;margin:14px auto 0}
+.brk-cap .de{font-size:18px;display:flex;justify-content:center;gap:10px;align-items:center;flex-wrap:wrap}
+.brk-cap p{margin:6px 0 0;color:var(--mute);font-size:14px}
+.brk-cap .inf{display:inline-flex;gap:8px;align-items:center;margin-top:12px;padding:8px 14px;border-radius:99px;background:var(--lav-2);color:var(--purple);font:600 13.5px var(--f)}
+.sandw{margin:24px auto 0;max-width:560px}
+
+/* ---------- step 4: questions ---------- */
+.qa{display:grid;gap:30px;margin-top:34px;align-items:center}
+.qa .phone{margin:0 auto}
+.chat{position:relative;flex:1;min-height:0;overflow-y:auto;padding:10px 10px 6px;display:flex;flex-direction:column;gap:7px;scrollbar-width:none}
+.chat::-webkit-scrollbar{display:none}
+.msg{max-width:86%;display:flex;flex-direction:column;gap:3px;animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
+.msg .bub{padding:8px 11px;border-radius:14px;font-size:12px;line-height:1.4;background:#fff;box-shadow:0 2px 8px -3px rgba(40,30,90,.25)}
+.msg.me{align-self:flex-end;align-items:flex-end}
+.msg.me .bub{background:#DFF8E9}
+.msg .t{font-size:8.5px;color:var(--purple);font-weight:600;background:var(--lav-2);border-radius:99px;padding:2px 7px}
+.msg b.v{background:var(--purple);color:#fff;border-radius:5px;padding:0 3px;font-weight:600}
+.msg i.s{font-style:normal;box-shadow:inset 0 -2px 0 var(--grass);font-weight:600}
+.msg u.w{text-decoration:none;background:var(--yellow);border-radius:5px;padding:0 3px;font-weight:600}
+.typing{align-self:flex-start;display:flex;gap:3px;padding:10px 12px;background:#fff;border-radius:14px;box-shadow:0 2px 8px -3px rgba(40,30,90,.25)}
+.typing.me{align-self:flex-end;background:#DFF8E9}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--purple-3);animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{50%{translate:0 -3px;opacity:.4}}
+@keyframes pop{from{scale:.6;opacity:0}}
+.qr{display:flex;gap:5px;overflow-x:auto;padding:6px 10px;flex:none;scrollbar-width:none}
+.qr::-webkit-scrollbar{display:none}
+.qr button{flex:none;border:0;border-radius:12px;padding:7px 9px;font:600 10px/1.2 var(--f);background:#fff;box-shadow:0 0 0 1px var(--line)}
+.qr button:nth-child(2){background:#DFF8E9;color:#1F6B47}
+.ask{margin:2px 10px 12px;border-radius:14px;box-shadow:0 0 0 1px var(--line);padding:9px 10px;font-size:10.5px;color:var(--mute);display:flex;justify-content:space-between;align-items:center;flex:none}
+.ask span{width:20px;height:20px;border-radius:50%;background:var(--grass);color:#fff;display:grid;place-items:center;font-size:10px}
+.chat-top{position:relative;height:96px;flex:none;background:linear-gradient(180deg,#45D2DE,#7EE3C3);overflow:hidden}
+.chat-top svg{position:absolute;inset:0;width:100%;height:100%}
+.chat-top .nm{position:absolute;left:12px;bottom:8px;background:rgba(255,255,255,.9);border-radius:99px;padding:4px 10px;font:600 10px var(--f)}
+.why h3{text-align:left}
+.why .grid4{display:grid;grid-template-columns:1fr 1fr;margin-top:22px;border-top:1px solid var(--line)}
+.why .it{padding:18px 12px 18px 0;border-bottom:1px solid var(--line)}
+.why .it:nth-child(odd){border-right:1px solid var(--line)}
+.why .it:nth-child(even){padding-left:14px}
+.why .ii{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:19px;margin-bottom:10px}
+.why .it b{display:block;font:600 14.5px var(--f);letter-spacing:-.01em}
+.why .it p{margin:5px 0 0;font-size:13px;color:var(--mute);line-height:1.45}
+.why .it .de{font-size:13px;color:var(--purple)}
+@media (min-width:900px){.qa{grid-template-columns:auto 1fr;gap:60px}.why h3{font-size:34px}}
+
+/* ---------- step 5: wow banner ---------- */
+.wow{border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#F1EE84 0%,#D6EC86 45%,#9EE09C 100%);position:relative;padding:28px 18px 18px}
+.wow .h2{text-align:left;font-size:clamp(28px,7.4vw,46px)}
+.wow p.wl2{color:#3A4A2A;font-size:15px;max-width:40ch;margin:12px 0 0}
+.wow .ill{position:relative;height:250px;margin:6px -18px 0}
+.wow .ill svg{position:absolute;inset:0;width:100%;height:100%}
+.wow .ill .shock{position:absolute;left:46%;top:18%;font:800 34px var(--f);color:var(--purple);rotate:12deg}
+.wcards{display:grid;gap:12px;position:relative;z-index:2;margin-top:-30px}
+.wcard{padding:16px 16px 14px}
+.wcard .wi{width:40px;height:40px;border-radius:50%;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:18px;margin-bottom:10px}
+.wcard .de{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:17px}
+.wcard .de mark{background:none;color:var(--purple)}
+.wcard p{margin:6px 0 0;color:var(--mute);font-size:13.5px}
+.wcard .ex{margin-top:10px;font-size:12.5px;color:var(--purple);font-weight:600;display:flex;gap:6px;align-items:center}
+@media (min-width:900px){.wow{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;padding:46px 40px}.wow .ill{grid-column:1;height:320px;margin:0 -40px -46px}.wcards{grid-column:2;grid-row:1/3;margin:0;align-self:center}}
+
+/* ---------- video ---------- */
+.blog{display:grid;gap:18px;margin-top:34px}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:20px;overflow:hidden;background:#000;box-shadow:var(--sh)}
+.yt img{width:100%;height:100%;object-fit:cover;transition:scale .5s}
+.yt:hover img{scale:1.04}
+.yt .pl{position:absolute;left:50%;top:50%;translate:-50% -50%;width:74px;height:74px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:28px;box-shadow:0 0 0 10px rgba(255,255,255,.35)}
+.yt .pl svg{fill:#fff;margin-left:4px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.blog .big h3{margin:16px 0 0;font-size:19px;text-align:left}
+.blog .big p{margin:8px 0 14px;font-size:13.5px;color:var(--mute)}
+.bl{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center}
+.bl .th{height:92px;border-radius:16px;position:relative;overflow:hidden;display:grid;place-items:center;color:#fff;font-size:30px}
+.bl .th svg.o{position:absolute;width:56px;height:64px;right:-4px;bottom:-8px}
+.bl b{font:600 15px var(--f);letter-spacing:-.01em}
+.bl p{margin:4px 0 0;font-size:13px;color:var(--mute);line-height:1.45}
+.bl .rd{display:inline-flex;align-items:center;gap:6px;margin-top:8px;border-radius:99px;box-shadow:0 0 0 1px var(--line);padding:5px 10px;font:600 11px var(--f);color:var(--ink-2)}
+.side{display:grid;gap:14px}
+@media (min-width:900px){.blog{grid-template-columns:1.15fr 1fr;gap:30px}}
+
+/* ---------- exercise ---------- */
+.ex{margin:30px auto 0;max-width:640px;padding:20px 16px 18px;position:relative;overflow:hidden}
+.ex .exbar{display:flex;gap:6px;margin-bottom:14px}
+.ex .exbar i{flex:1;height:6px;border-radius:9px;background:var(--line)}
+.ex .exbar i.cur{background:var(--purple-3)}
+.ex .exbar i.ok{background:var(--grass)}
+.ex .exbar i.bad{background:var(--yellow)}
+.ex .exn{font:600 12px var(--f);color:var(--purple);letter-spacing:.06em;text-transform:uppercase;margin:0}
+.ex .exr{margin:6px 0 0;color:var(--mute);font-size:14px}
+.zone{min-height:66px;margin:14px 0 0;padding:10px;border-radius:16px;background:var(--mint-3);box-shadow:inset 0 0 0 2px #CFF2DC;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;transition:box-shadow .3s,background .3s}
+.zone:empty::before{content:"Нажимай на слова снизу";color:#8FB9A0;font-size:14px;margin:12px auto}
+.zone.ok{box-shadow:inset 0 0 0 2px var(--grass);background:#E5FAEC}
+.zone.bad{box-shadow:inset 0 0 0 2px var(--yellow);background:#FFF7E3}
+.pool{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;min-height:46px}
+.tile{border:0;border-radius:12px;padding:11px 14px;background:#fff;box-shadow:0 0 0 1.5px var(--line),0 6px 12px -8px rgba(40,30,90,.4);font:600 15px/1 var(--f);transition:scale .2s,background .2s,color .2s}
+.tile:hover{scale:1.05}
+.tile.gone{visibility:hidden}
+.zone .tile{background:#fff}
+.zone .tile.r1{background:var(--butter)}
+.zone .tile.r2{background:var(--purple);color:#fff}
+.zone .tile.r3{background:#CFF2DC}
+.zone .tile.r4{background:var(--lav)}
+.zone .tile.wrong{box-shadow:0 0 0 2px var(--red)}
+.exbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.exx{margin-top:14px;padding:14px;border-radius:14px;background:var(--lav-2);font-size:14px;line-height:1.55;display:none}
+.exx.show{display:block}
+.exx .de{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:16px;margin-bottom:6px}
+.exx.bad{background:#FFF4DC}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:12px;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:4px}
+.score{font:700 54px/1 var(--f);letter-spacing:-.05em;text-align:center;margin:10px 0 0}
+.score small{font-size:20px;color:var(--purple)}
+.conf{position:absolute;left:50%;top:40%;width:9px;height:14px;border-radius:3px;pointer-events:none;z-index:9}
+.answers{margin:18px auto 0;max-width:640px}
+
+/* ---------- faq ---------- */
+.faq{display:grid;gap:12px;margin:30px auto 0;max-width:680px}
+.fq{background:#fff;border-radius:18px;box-shadow:var(--sh)}
+.fq button{width:100%;border:0;background:none;text-align:left;display:flex;align-items:center;gap:12px;padding:17px 16px 17px 18px;font:600 15px/1.35 var(--f);letter-spacing:-.01em}
+.fq button span.pm{margin-left:auto;width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line);transition:background .3s,color .3s,rotate .3s}
+.fq button[aria-expanded=true] span.pm{background:var(--purple);color:#fff;box-shadow:0 6px 14px -6px rgba(118,82,187,.9);rotate:180deg}
+.fq .fa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.3,1,.4,1)}
+.fq .fa>div{overflow:hidden}
+.fq .fa p{margin:0;padding:0 18px 18px;font-size:14px;line-height:1.6;color:var(--mute)}
+.fq .fa p b{color:var(--ink);font-weight:600}
+.fq.open .fa{grid-template-rows:1fr}
+
+/* ---------- summary ---------- */
+.sumg{display:grid;gap:14px;margin-top:30px}
+.sc{border-radius:24px;padding:22px 20px;position:relative;overflow:hidden}
+.sc.y{background:#FDDF8E}
+.sc.p{background:#B9A6F2}
+.sc b.t{display:block;font:600 21px/1.2 var(--f);letter-spacing:-.03em}
+.sc ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+.sc li{display:flex;gap:10px;font-size:15px;line-height:1.45}
+.sc li .ic{margin-top:3px;color:var(--purple)}
+.sc.p li .ic{color:#fff}
+.sc .cir{width:120px;height:120px;border-radius:50%;margin:18px auto 0;background:rgba(255,255,255,.55);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,255,255,.25)}
+.sc .cir svg{width:80px;height:92px}
+.formula{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:22px}
+.formula span{padding:12px 14px;border-radius:14px;font:700 15px/1 var(--f);background:#fff;box-shadow:var(--sh)}
+.formula span.v{background:var(--purple);color:#fff}
+.formula span small{display:block;font:600 10px var(--f);opacity:.6;margin-top:5px}
+@media (min-width:860px){.sumg{grid-template-columns:1fr 1fr}}
+
+/* ---------- outro ---------- */
+.outro{padding:0;background:linear-gradient(180deg,#3ACFDE 0%,#7EE6D2 50%,#B9F4CB 100%);overflow:hidden}
+.outro .wrap{padding:70px var(--gut) 0;text-align:center}
+.outro .h2 span{color:var(--purple)}
+.outro p{color:#1F3A3A;max-width:34ch;margin:14px auto 0}
+.outro .cta{justify-content:center}
+.outro svg.ground2{display:block;width:100%;height:auto;margin-top:10px}
+footer{background:#0F1A16;color:rgba(255,255,255,.7);padding:26px var(--gut);font-size:13px;text-align:center}
+footer a{color:#fff}
+
+/* reveal fallback */
+.rv,.stg>*{transition:translate .8s cubic-bezier(.2,.9,.3,1.1),opacity .8s}
+html:not(.gs) .rv:not(.in){translate:0 30px}
+html.gs .rv,html.gs .stg>*{transition:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gOwl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9C7DEE"/><stop offset="1" stop-color="#7652BB"/></linearGradient>
+  </defs>
+  <symbol id="spk" viewBox="0 0 24 24"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></symbol>
+  <symbol id="owl" viewBox="0 0 120 140">
+    <path d="M47 122 L60 140 L73 122Z" fill="#5A3E9E"/>
+    <path class="wl" d="M18 70 Q-2 100 20 130 Q32 106 32 80Z" fill="#6343B0"/>
+    <path class="wr" d="M102 70 Q122 100 100 130 Q88 106 88 80Z" fill="#6343B0"/>
+    <ellipse cx="60" cy="86" rx="45" ry="48" fill="url(#gOwl)"/>
+    <path d="M36 82 Q60 72 84 82 L86 126 Q60 138 34 126Z" fill="#fff"/>
+    <path d="M60 78 L52 100 M60 78 L68 100" stroke="#DED5F7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="46" cy="112" r="2" fill="#DED5F7"/><circle cx="74" cy="112" r="2" fill="#DED5F7"/>
+    <path d="M22 42 L13 12 L44 30Z" fill="#7A5AD2"/>
+    <path d="M98 42 L107 12 L76 30Z" fill="#7A5AD2"/>
+    <ellipse cx="60" cy="50" rx="47" ry="37" fill="#8C6CE0"/>
+    <circle cx="41" cy="50" r="20" fill="#B49CF3"/><circle cx="79" cy="50" r="20" fill="#B49CF3"/>
+    <circle cx="41" cy="50" r="15" fill="#FFC93D" stroke="#4A2E91" stroke-width="2.5"/>
+    <circle cx="43" cy="52" r="7.5" fill="#22143C"/><circle cx="46" cy="48" r="2.6" fill="#fff"/>
+    <circle cx="79" cy="50" r="15" fill="#FFC93D" stroke="#4A2E91" stroke-width="2.5"/>
+    <circle cx="81" cy="52" r="7.5" fill="#22143C"/><circle cx="84" cy="48" r="2.6" fill="#fff"/>
+    <ellipse class="lid" cx="41" cy="50" rx="16.5" ry="16.5" fill="#8C6CE0"/>
+    <ellipse class="lid" cx="79" cy="50" rx="16.5" ry="16.5" fill="#8C6CE0"/>
+    <path d="M53 62 L67 62 L60 75Z" fill="#F7962B"/>
+    <circle cx="25" cy="68" r="4.5" fill="#F7A1C4" opacity=".8"/><circle cx="95" cy="68" r="4.5" fill="#F7A1C4" opacity=".8"/>
+    <path d="M45 131 l-7 8 h14z M75 131 l-7 8 h14z" fill="#F7962B"/>
+  </symbol>
+  <symbol id="owlhead" viewBox="8 8 104 82">
+    <path d="M22 42 L13 12 L44 30Z" fill="#7A5AD2"/><path d="M98 42 L107 12 L76 30Z" fill="#7A5AD2"/>
+    <ellipse cx="60" cy="50" rx="47" ry="37" fill="#8C6CE0"/>
+    <circle cx="41" cy="50" r="20" fill="#B49CF3"/><circle cx="79" cy="50" r="20" fill="#B49CF3"/>
+    <circle cx="41" cy="50" r="15" fill="#FFC93D" stroke="#4A2E91" stroke-width="2.5"/><circle cx="43" cy="52" r="7.5" fill="#22143C"/>
+    <circle cx="79" cy="50" r="15" fill="#FFC93D" stroke="#4A2E91" stroke-width="2.5"/><circle cx="81" cy="52" r="7.5" fill="#22143C"/>
+    <path d="M53 62 L67 62 L60 75Z" fill="#F7962B"/>
+  </symbol>
+  <symbol id="bird" viewBox="0 0 60 60">
+    <path d="M10 36 L2 30 L4 42Z" fill="#D94C74"/>
+    <ellipse cx="28" cy="36" rx="18" ry="15" fill="#F0668C"/>
+    <ellipse cx="33" cy="41" rx="10" ry="8" fill="#FFD3DF"/>
+    <path d="M18 34 Q24 26 32 34 Q26 42 18 34Z" fill="#D94C74"/>
+    <circle cx="40" cy="26" r="11" fill="#F0668C"/>
+    <path d="M36 15 L38 6 L42 15Z M40 15 L46 8 L45 17Z" fill="#E04B7A"/>
+    <circle cx="43" cy="24" r="2.6" fill="#22143C"/>
+    <path d="M49 25 L58 28 L49 31Z" fill="#F7962B"/>
+    <path d="M26 50 v6 M33 50 v6" stroke="#F7962B" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="house" viewBox="0 0 120 130">
+    <rect x="12" y="40" width="96" height="90" rx="3" fill="#F6C48A"/>
+    <rect x="12" y="120" width="96" height="10" fill="#E9A766"/>
+    <g fill="#EBA163"><rect x="20" y="58" width="14" height="5" rx="1"/><rect x="88" y="54" width="14" height="5" rx="1"/><rect x="22" y="98" width="16" height="5" rx="1"/><rect x="84" y="96" width="14" height="5" rx="1"/><rect x="40" y="110" width="12" height="5" rx="1"/></g>
+    <path d="M0 44 Q6 30 22 26 L98 26 Q114 30 120 44 L114 48 L6 48Z" fill="#7652BB"/>
+    <path d="M20 26 Q60 8 100 26Z" fill="#9B7FE3"/>
+    <rect x="4" y="46" width="112" height="5" rx="2" fill="#5E3FA3"/>
+    <circle cx="60" cy="76" r="16" fill="#FFE7BB" stroke="#E5574C" stroke-width="3"/>
+    <path d="M48 130 V110 Q60 96 72 110 V130Z" fill="#EE9C5A" stroke="#C8763A" stroke-width="2"/>
+  </symbol>
+  <symbol id="floor" viewBox="0 0 120 100">
+    <rect x="18" y="40" width="84" height="60" fill="#F6C48A"/>
+    <g fill="#EBA163"><rect x="26" y="56" width="14" height="5" rx="1"/><rect x="80" y="80" width="14" height="5" rx="1"/></g>
+    <path d="M6 44 Q12 30 26 26 L94 26 Q108 30 114 44 L108 48 L12 48Z" fill="#7652BB"/>
+    <path d="M24 26 Q60 8 96 26Z" fill="#9B7FE3"/>
+    <rect x="10" y="46" width="100" height="5" rx="2" fill="#5E3FA3"/>
+    <circle cx="60" cy="74" r="13" fill="#FFE7BB" stroke="#E5574C" stroke-width="3"/>
+    <path d="M60 62 V86 M48 74 H72" stroke="#E5574C" stroke-width="3"/>
+  </symbol>
+  <symbol id="tree" viewBox="0 0 100 100">
+    <path d="M47 99 L48 54 L42 44 L49 48 L55 38 L53 52 L54 99Z" fill="#8B5E3C"/>
+    <ellipse cx="50" cy="40" rx="46" ry="14" fill="#3FA45A"/>
+    <ellipse cx="48" cy="32" rx="34" ry="11" fill="#5CC46B"/>
+    <ellipse cx="40" cy="27" rx="18" ry="6" fill="#86D97E"/>
+  </symbol>
+  <symbol id="cloudS" viewBox="0 0 120 50"><path d="M10 46 Q0 46 3 37 Q6 27 20 29 Q22 12 41 14 Q51 0 69 8 Q85 2 93 18 Q113 16 115 32 Q119 46 104 46Z"/></symbol>
+  <symbol id="flower" viewBox="0 0 40 52">
+    <path d="M20 52 V24" stroke="#3E9E52" stroke-width="2.5"/>
+    <path d="M20 40 Q8 34 6 24 Q16 28 20 38Z M20 44 Q32 38 34 28 Q24 32 20 42Z" fill="#4FB866"/>
+    <g fill="#F36D8E"><circle cx="20" cy="9" r="6"/><circle cx="29" cy="15" r="6"/><circle cx="26" cy="25" r="6"/><circle cx="14" cy="25" r="6"/><circle cx="11" cy="15" r="6"/></g>
+    <circle cx="20" cy="18" r="5" fill="#FFC93D"/>
+    <path d="M30 6 Q36 2 38 10 Q32 12 30 6Z" fill="#9C7FE3"/>
+  </symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></symbol>
+<symbol id="i-volume-2" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></symbol>
+<symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
+<symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+<symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2"/><path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45"/></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
+<symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+<symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="i-move-right" viewBox="0 0 24 24"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></symbol>
+<symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+<symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol>
+<symbol id="i-signpost" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="M12 3v3"/><path d="M18 6a2 2 0 0 1 1.387.56l2.307 2.22a1 1 0 0 1 0 1.44l-2.307 2.22A2 2 0 0 1 18 13H6a2 2 0 0 1-1.387-.56l-2.306-2.22a1 1 0 0 1 0-1.44l2.306-2.22A2 2 0 0 1 6 6z"/></symbol>
+<symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></symbol>
+<symbol id="i-party-popper" viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></symbol>
+<symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+
+</svg>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="road"></div><div class="rfill" id="rfill"></div>
+  <div class="rowl" id="rowl"><svg viewBox="0 0 120 140"><use href="#owl"/></svg><span class="rpct" id="rpct">0%</span></div>
+</div>
+
+<header class="top" id="top">
+  <a class="logo" href="#hero"><img src="../media/logo.webp" alt="" width="32" height="32"><span>Stellas<small>Deutsch · Grammatik</small></span></a>
+  <a class="btn sm" href="#ex"><svg class="ic"><use href="#i-puzzle"/></svg> Упражнение</a>
+</header>
+
+<main lang="ru">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <svg class="cloud c1" viewBox="0 0 120 50"><use href="#cloudS"/></svg>
+  <svg class="cloud c2" viewBox="0 0 120 50"><use href="#cloudS"/></svg>
+  <svg class="cloud c3" viewBox="0 0 120 50"><use href="#cloudS"/></svg>
+  <div class="wrap">
+    <div class="txt">
+      <div style="margin-bottom:18px"><span class="tag">Немецкий · порядок слов</span></div>
+      <h1 class="h1">Обратный порядок слов <span class="acc">без паники</span></h1>
+      <p class="hp">В немецком глагол сидит на втором месте. Всегда. Переставь что угодно. Он не сдвинется. Разберём за 7 минут.</p>
+      <div class="say-line"><span><b>Morgen</b> gehe ich ins Kino.</span><button class="say" data-say="Morgen gehe ich ins Kino." aria-label="Послушать"><svg><use href="#spk"/></svg></button></div>
+      <div class="cta">
+        <a class="btn" href="#s1">Начать урок <svg class="ic"><use href="#i-arrow-right"/></svg></a>
+        <a class="btn ghost" href="#ex"><svg class="ic"><use href="#i-puzzle"/></svg> Сразу к упражнению</a>
+      </div>
+    </div>
+    <div class="stage">
+      <svg class="scene" viewBox="0 0 400 330" role="img" aria-label="Сова идёт по дорожке к трём домам с номерами 1, 2 и 3">
+        <path d="M0 196 Q70 150 160 180 Q250 208 320 168 Q370 148 400 158 V330 H0Z" fill="#8EDB86"/>
+        <use href="#tree" x="2" y="112" width="96" height="96"/>
+        <use href="#tree" x="312" y="92" width="96" height="96"/>
+        <use href="#tree" x="120" y="142" width="54" height="54"/>
+        <use href="#house" x="18" y="148" width="110" height="119"/>
+        <text x="73" y="218" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-weight="800" font-size="17" fill="#E5574C">1</text>
+        <rect x="236" y="26" width="13" height="30" rx="2" fill="#F09A55"/><rect x="232" y="22" width="21" height="7" rx="3" fill="#7652BB"/>
+        <use href="#floor" x="160" y="34" width="96" height="80"/>
+        <use href="#house" x="148" y="104" width="120" height="130"/>
+        <text x="208" y="181" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-weight="800" font-size="19" fill="#E5574C">2</text>
+        <use href="#house" x="282" y="160" width="100" height="108"/>
+        <text x="332" y="223" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-weight="800" font-size="15" fill="#E5574C">3</text>
+        <path d="M0 252 Q110 222 210 250 Q300 276 400 238 V330 H0Z" fill="#6CCB6F"/>
+        <path d="M208 236 C204 262 128 258 146 288 S118 322 96 340" fill="none" stroke="#F2B064" stroke-width="34" stroke-linecap="round"/>
+        <path d="M208 236 C204 262 128 258 146 288 S118 322 96 340" fill="none" stroke="#F8D49C" stroke-width="24" stroke-linecap="round"/>
+        <path d="M0 302 Q60 282 116 308 L116 330 H0Z" fill="#4FB866"/>
+        <path d="M272 316 Q336 286 400 298 V330 H272Z" fill="#4FB866"/>
+        <polygon points="300,300 318,284 336,294 328,308 304,308" fill="#8E92DA"/><polygon points="318,284 336,294 324,296" fill="#A9ADEB"/>
+        <polygon points="60,274 72,264 84,272 78,282 62,282" fill="#8E92DA"/>
+        <g stroke="#3E9E52" stroke-width="2.5" stroke-linecap="round" fill="none"><path d="M180 300 l4 -10 l4 10 M340 260 l3 -8 l3 8 M30 250 l3 -8 l3 8 M240 296 l3 -8 l3 8"/></g>
+        <use href="#bird" x="36" y="252" width="40" height="40"/>
+        <g class="bob"><use href="#owl" x="232" y="214" width="74" height="86"/></g>
+      </svg>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="scr">
+        <div class="notch"></div>
+        <div class="sbar"><span>9:41</span><span><i></i></span></div>
+        <div class="ph-top">
+          <svg class="room" viewBox="0 0 240 200" preserveAspectRatio="xMidYMid slice">
+            <rect x="0" y="120" width="240" height="80" fill="#3FA45A"/>
+            <path d="M0 130 Q60 110 120 128 T240 118 V200 H0Z" fill="#5CC46B"/>
+            <use href="#house" x="130" y="40" width="96" height="104"/>
+            <use href="#tree" x="6" y="64" width="70" height="70"/>
+            <ellipse cx="96" cy="168" rx="46" ry="10" fill="#F8D49C"/>
+            <use href="#owl" x="68" y="96" width="56" height="66"/>
+          </svg>
+          <div class="ph-hi"><b>Ш</b><span>Hallo, Shyngys!<small>6 Okt 2026</small></span></div>
+        </div>
+        <div class="ph-card">
+          <span class="av"><svg viewBox="8 8 104 82"><use href="#owlhead"/></svg></span>
+          <b>Herr Eule</b><small>Lehrer · Wortstellung</small>
+          <div class="pp"><span><svg class="ic"><use href="#i-calendar-days"/></svg> Heute</span><span><svg class="ic"><use href="#i-clock"/></svg> 7 Min</span></div>
+        </div>
+        <div class="ph-body">
+          <p class="ph-h">Satz des Tages <small>Inversion</small></p>
+          <div class="mg" id="heroSatz">
+            <i></i><i></i><i></i><i></i>
+            <span class="tk" data-k="ich" style="--c:0">Ich</span>
+            <span class="tk v" data-k="gehe" style="--c:1">gehe</span>
+            <span class="tk" data-k="morgen" style="--c:2">morgen</span>
+            <span class="tk" data-k="kino" style="--c:3">ins Kino</span>
+          </div>
+          <p class="mg-l" id="heroLbl">Прямой порядок</p>
+          <p class="ph-h">Überblick</p>
+          <div class="ph-stats">
+            <div>Verb<b>Pos. 2</b>immer<svg viewBox="0 0 60 16"><path d="M0 12 L10 10 L18 13 L26 4 L34 9 L42 2 L50 8 L60 6" fill="none" stroke="#7652BB" stroke-width="2"/></svg></div>
+            <div>Formel<b>X·V·S</b>Inversion<svg viewBox="0 0 60 16"><g fill="#86D97E"><rect x="2" y="6" width="5" height="10" rx="2"/><rect x="12" y="2" width="5" height="14" rx="2"/><rect x="22" y="8" width="5" height="8" rx="2"/><rect x="32" y="4" width="5" height="12" rx="2"/><rect x="42" y="1" width="5" height="15" rx="2"/><rect x="52" y="6" width="5" height="10" rx="2"/></g></svg></div>
+          </div>
+        </div>
+        <div class="ph-nav"><span><svg class="ic"><use href="#i-house"/></svg></span><span><svg class="ic"><use href="#i-book-open"/></svg></span><span class="on"><svg class="ic"><use href="#i-sparkles"/></svg></span><span><svg class="ic"><use href="#i-calendar-days"/></svg></span><span><svg class="ic"><use href="#i-layers"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story" style="padding-top:84px">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">История</span></div>
+    <h2 class="h2">Как кассирша в Spar <span class="acc">исправила мой немецкий</span></h2>
+    <p class="sub">Три части. Короткие. Как очередь в восемь утра.</p>
+    <div class="revs hsc" id="revs">
+      <article class="rev">
+        <p>Первый месяц в Австрии. Захожу в Spar. Акция на кофе. Хочу сказать кассирше, что завтра приду ещё. Собираю фразу в голове. Из русских деталей.</p>
+        <p>Говорю, <em>Morgen ich komme wieder.</em></p>
+        <div class="who"><span class="av">Ш</span><span>Шынгыс<small>Wien · студент</small></span><span class="n"><svg class="ic"><use href="#i-star"/></svg> 1/3</span></div>
+      </article>
+      <article class="rev">
+        <p>Кассирша смотрит на меня. Долго. Как инспектор налоговой.</p>
+        <p>Говорит, <em>Morgen komme ich wieder?</em> Говорю, ja. Говорит, gut. И отдаёт чек. Без улыбки.</p>
+        <div class="who"><span class="av">Ш</span><span>Шынгыс<small>Wien · студент</small></span><span class="n"><svg class="ic"><use href="#i-star"/></svg> 2/3</span></div>
+      </article>
+      <article class="rev">
+        <p>Я вышел и полчаса стоял у входа. Что она сделала? Поменяла два слова местами. <em>ich</em> и <em>komme</em>.</p>
+        <p>Глагол встал на второе место. Я отошёл на третье. Так я узнал про инверсию. Бесплатно. Вместе с кофе.</p>
+        <div class="who"><span class="av">Ш</span><span>Шынгыс<small>Wien · студент</small></span><span class="n"><svg class="ic"><use href="#i-star"/></svg> 3/3</span></div>
+      </article>
+    </div>
+    <div class="arrows"><button type="button" data-dir="-1" aria-label="Назад"><svg class="ic"><use href="#i-arrow-left"/></svg></button><button type="button" data-dir="1" aria-label="Дальше"><svg class="ic"><use href="#i-arrow-right"/></svg></button></div>
+    <p class="punch rv">Кофе закончился через неделю. Правило осталось.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="nums" style="padding-top:30px">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Цифры</span></div>
+    <h2 class="h2">Три цифры, <span class="acc">которые решают всё</span></h2>
+    <p class="sub">Запомни их. Остальное это примеры.</p>
+    <div class="stats">
+      <div class="stat"><div class="num"><span class="roll" data-to="1">1</span><small>место</small></div><p>Перед глаголом стоит что-то одно. Слово или целая группа. Но одна.</p></div>
+      <div class="stat"><div class="num"><span class="roll" data-to="2">2</span><small>место</small></div><p>Здесь живёт глагол. Не на первом. Не на третьем. На втором.</p></div>
+      <div class="stat"><div class="num"><span class="roll" data-to="3">3</span><small>место</small></div><p>Сюда отходит подлежащее, если первое место кто-то занял.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE -->
+<section id="route" class="mintbg">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Маршрут</span></div>
+    <h2 class="h2">Всё, что нужно <span class="acc">для инверсии</span></h2>
+    <p class="sub">Шесть остановок. Идём по дорожке, как сова. Можно прыгнуть сразу к нужной.</p>
+    <div class="feats hsc">
+      <a class="feat" href="#s1"><div class="ill g1"><span class="no">01</span><span class="bad"><svg class="ic"><use href="#i-shuffle"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Что это</b><p>Прямой и обратный порядок. Кто куда переехал.</p></div></a>
+      <a class="feat" href="#s2"><div class="ill g2"><span class="no">02</span><span class="bad"><svg class="ic"><use href="#i-house"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Структура</b><p>Улица из трёх домов. Глагол там прописан.</p></div></a>
+      <a class="feat" href="#s3"><div class="ill g3"><span class="no">03</span><span class="bad"><svg class="ic"><use href="#i-layers"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Рамка</b><p>Глагол из двух частей. Голова и хвост.</p></div></a>
+      <a class="feat" href="#s4"><div class="ill g4"><span class="no">04</span><span class="bad"><svg class="ic"><use href="#i-message-circle"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Вопросы</b><p>Когда глагол лезет вперёд всех.</p></div></a>
+      <a class="feat" href="#s5"><div class="ill g5"><span class="no">05</span><span class="bad"><svg class="ic"><use href="#i-party-popper"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Восклицания</b><p>Немцы удивляются глаголом.</p></div></a>
+      <a class="feat" href="#video"><div class="ill g6"><span class="no">06</span><span class="bad"><svg class="ic"><use href="#i-puzzle"/></svg></span><i class="hill"></i><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div class="bd"><b>Практика</b><p>Видео и упражнение с ответами.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1 -->
+<section id="s1">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Шаг 1 · Что это</span></div>
+    <h2 class="h2">Прямой порядок <span class="acc">и обратный</span></h2>
+    <p class="lead">Прямой порядок как очередь. Сначала кто. Потом что делает. Потом всё остальное. Обратный это когда первым пришёл не кто. А когда. Или где. Глагол при этом стоит где стоял.</p>
+
+    <div class="sg rv" id="sg">
+      <div class="sgrid" id="sgrid">
+        <div class="col"><span class="cn">1</span><svg class="fl" viewBox="0 0 40 52"><use href="#flower"/></svg><span class="lbl">Wann?</span></div>
+        <div class="col vb"><span class="cn">2</span><span class="vt">Verb</span><span class="lbl">Глагол</span></div>
+        <div class="col"><span class="cn">3</span><svg class="fl" viewBox="0 0 40 52"><use href="#flower"/></svg><span class="lbl">Wer?</span></div>
+        <div class="col"><span class="cn">4</span><svg class="fl" viewBox="0 0 40 52"><use href="#flower"/></svg><span class="lbl">Rest</span></div>
+        <span class="tk" data-k="ich">Ich</span>
+        <span class="tk v" data-k="gehe">gehe</span>
+        <span class="tk" data-k="morgen">morgen</span>
+        <span class="tk" data-k="kino">ins Kino</span>
+      </div>
+      <p class="cap" id="sgCap"></p>
+      <div class="ctrl">
+        <button class="nav" id="sgPrev" aria-label="Назад"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+        <div class="dots" id="sgDots"><i></i><i></i><i></i><i></i><i></i></div>
+        <button class="nav" id="sgNext" aria-label="Дальше"><svg class="ic"><use href="#i-arrow-right"/></svg></button>
+        <button class="say" id="sgSay" data-say="Ich gehe morgen ins Kino." aria-label="Послушать"><svg><use href="#spk"/></svg></button>
+        <button class="btn sm ghost" id="sgPlay"><svg class="ic"><use href="#i-rotate-ccw"/></svg></button>
+      </div>
+    </div>
+
+    <div class="sp"></div>
+    <h3 class="h3" style="text-align:center">В русском можно как угодно. <span class="acc">В немецком нет.</span></h3>
+    <div class="vs" id="vs">
+      <div class="card vsc">
+        <h4>Русский <span>свобода</span></h4>
+        <ul>
+          <li style="--i:0">Завтра я иду в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:1">Я завтра иду в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:2">Я иду завтра в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:3">Иду я завтра в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:4">Завтра иду я в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:5">Иду завтра я в кино<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+        </ul>
+      </div>
+      <div class="card vsc de">
+        <h4>Deutsch <span>глагол второй</span></h4>
+        <ul>
+          <li style="--i:0" data-say="Ich gehe morgen ins Kino.">Ich gehe morgen ins Kino<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:1" data-say="Morgen gehe ich ins Kino.">Morgen gehe ich ins Kino<span class="m"><svg class="ic"><use href="#i-check"/></svg></span></li>
+          <li style="--i:2" class="no">Morgen ich gehe ins Kino<span class="m"><svg class="ic"><use href="#i-x"/></svg></span></li>
+          <li style="--i:3" class="no">Ich morgen gehe ins Kino<span class="m"><svg class="ic"><use href="#i-x"/></svg></span></li>
+          <li style="--i:4" class="q" data-say="Gehe ich morgen ins Kino?">Gehe ich morgen ins Kino?<span class="m">?</span></li>
+          <li style="--i:5" class="no">Gehe morgen ich ins Kino<span class="m"><svg class="ic"><use href="#i-x"/></svg></span></li>
+        </ul>
+      </div>
+      <div class="card bars">
+        <b class="h3" style="font-size:17px">Сколько вариантов работает</b>
+        <div class="bar"><span>RU</span><span class="tr"><i class="ru" style="--w:100%"></i></span><span>6/6</span></div>
+        <div class="bar"><span>DE</span><span class="tr"><i class="dee" style="--w:33.3%"></i></span><span>2/6</span></div>
+        <div class="bar"><span>DE ?</span><span class="tr"><i class="qq" style="--w:16.7%"></i></span><span>+1</span></div>
+        <small>Шесть перестановок одних и тех же слов. В немецком выжили две. Ещё одна работает только как вопрос.</small>
+      </div>
+      <div class="quote rv"><svg class="ic q"><use href="#i-quote"/></svg>Говорю немцу, а можно <b>Morgen ich gehe</b>? Говорит, nein. Говорю, а если очень хочется? Говорит, тогда иди в кино молча.<small>Разговор в общаге, Вена</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section id="s2" class="mintbg">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Шаг 2 · Структура</span></div>
+    <h2 class="h2">Улица <span class="acc">из трёх домов</span></h2>
+    <p class="lead">Представь улицу. Три дома. В первом живёт кто угодно. Во втором прописан глагол. В третьем подлежащее, если его выселили из первого.</p>
+    <div class="tabs" role="group" aria-label="Тип обстоятельства">
+      <button type="button" data-g="wann" aria-pressed="true"><svg class="ic"><use href="#i-clock"/></svg> Wann? Когда</button>
+      <button type="button" data-g="wo" aria-pressed="false"><svg class="ic"><use href="#i-map-pin"/></svg> Wo? Где</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="street" id="street">
+      <svg class="cl" viewBox="0 0 120 50"><use href="#cloudS"/></svg>
+      <svg class="cl b" viewBox="0 0 120 50"><use href="#cloudS"/></svg>
+      <div class="houses">
+        <div class="hs"><svg class="hb" viewBox="0 0 120 130"><use href="#house"/></svg><span class="rn">1</span><span class="lb" id="h1">Im März</span><span class="q">Wann? Wo?</span></div>
+        <div class="hs h2v"><svg class="hb" viewBox="0 0 120 130"><use href="#house"/></svg><span class="rn">2</span><span class="lb" id="h2">besuche</span><span class="q">Глагол</span></div>
+        <div class="hs"><svg class="hb" viewBox="0 0 120 130"><use href="#house"/></svg><span class="rn">3</span><span class="lb" id="h3">ich</span><span class="q">Wer?</span></div>
+      </div>
+      <div class="ground">
+        <svg class="gr" viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M0 30 Q100 10 200 30 T400 24 V120 H0Z" fill="#6CCB6F"/><path d="M-10 78 Q120 40 260 70 T420 60" fill="none" stroke="#F2B064" stroke-width="30"/><path d="M-10 78 Q120 40 260 70 T420 60" fill="none" stroke="#F8D49C" stroke-width="21"/><path d="M0 104 Q90 90 180 112 L180 120 H0Z" fill="#4FB866"/></svg>
+        <svg class="wowl" id="wowl" viewBox="0 0 120 140"><use href="#owl"/></svg>
+        <div class="rest"><small>Rest</small><span id="h4">meine Großeltern.</span></div>
+      </div>
+    </div>
+    <div class="card sent">
+      <div><div class="de" id="stDe"><span class="p1">Im März</span> <span class="p2">besuche</span> <span class="p3">ich</span> meine Großeltern.</div><p id="stRu">В марте я навещу бабушку и дедушку.</p></div>
+      <button class="say" id="stSay" data-say="Im März besuche ich meine Großeltern." aria-label="Послушать"><svg><use href="#spk"/></svg></button>
+    </div>
+    <div class="quote rv" style="max-width:720px;margin:16px auto 0"><svg class="ic q"><use href="#i-quote"/></svg>Говорю глаголу, подвинься, пришёл <b>Im März</b>. Говорит, не могу. У меня прописка. Двигайся ты, ich.<small>Как запомнить с первого раза</small></div>
+
+    <div class="sp"></div><div class="sp"></div>
+    <h3 class="h3" style="text-align:center">Кто стоит <span class="acc">в начале?</span></h3>
+    <p class="sub">Один вопрос. Он решает весь порядок.</p>
+    <div class="dec" id="dec">
+      <div class="card droot"><b>Смотрим на первое место</b><span class="dq" id="dq">Gestern war ich müde.</span></div>
+      <div class="dbr" id="dbr">
+        <span class="rl"><i id="drl"></i></span>
+        <div class="br" data-b="0"><b>Подлежащее</b><span class="fm"><i>S</i><i class="v">V</i><i>…</i></span><small>Ich gehe ins Kino.</small><span class="kind">Прямой порядок</span></div>
+        <div class="br" data-b="1"><b>Время, место, что угодно</b><span class="fm"><i>X</i><i class="v">V</i><i>S</i></span><small>Morgen gehe ich ins Kino.</small><span class="kind">Обратный</span></div>
+        <div class="br" data-b="2"><b>Вопросительное слово</b><span class="fm"><i>W</i><i class="v">V</i><i>S</i></span><small>Wohin gehst du?</small><span class="kind">Обратный</span></div>
+        <div class="br" data-b="3"><b>Пусто. Вопрос да или нет</b><span class="fm"><i class="v">V</i><i>S</i><i>…</i></span><small>Gehst du ins Kino?</small><span class="kind">Обратный</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section id="s3">
+  <svg class="swoosh" style="left:-6%;top:40px" viewBox="0 0 300 120"><path d="M0 20 Q140 120 300 90 Q150 110 0 60Z" fill="#7EE3C3" opacity=".55"/></svg>
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Шаг 3 · Рамка</span></div>
+    <h2 class="h2">Когда глагол <span class="acc">из двух частей</span></h2>
+    <p class="lead">Иногда глагол приходит не один. С приставкой. С модальным другом. С haben. Тогда его рвёт пополам. Голова остаётся на втором месте. Хвост уезжает в самый конец.</p>
+    <div class="tabs" role="group" aria-label="Тип составного сказуемого">
+      <button type="button" data-br="trenn" aria-pressed="true">Приставка</button>
+      <button type="button" data-br="modal" aria-pressed="false">Модальный</button>
+      <button type="button" data-br="perf" aria-pressed="false">Perfekt</button>
+    </div>
+    <div class="card brk" id="brk">
+      <div class="rw r1"><span class="n">1</span><span class="tok" id="b1">Morgens</span></div>
+      <div class="rw r2"><span class="n">2</span><span class="whole" id="bW">aufstehen</span><span class="head hide" id="bH">stehe</span></div>
+      <div class="rw r3"><span class="n">3</span><span class="tok" id="b3">ich</span></div>
+      <div class="rw r4"><span class="n">4</span><span class="tok" id="b4">um 8 Uhr</span></div>
+      <div class="rw r5"><span class="n">5</span><span class="slot" id="bS"></span></div>
+      <span class="tail ghost" id="bT">auf</span>
+      <span class="clamp" id="bC"><span>RAHMEN</span></span>
+    </div>
+    <div class="brk-cap">
+      <div class="de"><span id="bDe">Morgens stehe ich um 8 Uhr auf.</span><button class="say" id="bSay" data-say="Morgens stehe ich um 8 Uhr auf." aria-label="Послушать"><svg><use href="#spk"/></svg></button></div>
+      <p id="bRu">По утрам я встаю в 8 часов.</p>
+      <span class="inf" id="bInf">aufstehen → stehe … auf</span>
+      <div style="margin-top:14px"><button class="btn sm ghost" id="bPlay"><svg class="ic"><use href="#i-rotate-ccw"/></svg> Порвать ещё раз</button></div>
+    </div>
+    <div class="quote sandw rv"><svg class="ic q"><use href="#i-quote"/></svg>Как бутерброд. Хлеб сверху. Хлеб снизу. Начинка внутри. Немцы называют это <b>Satzklammer</b>. Мы будем звать рамкой. Звучит менее страшно.<small>Голова на втором месте, хвост в конце</small></div>
+  </div>
+</section>
+
+<!-- STEP 4 -->
+<section id="s4" class="mintbg">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Шаг 4 · Вопросы</span></div>
+    <div class="qa">
+      <div class="phone">
+        <div class="scr">
+          <div class="notch"></div>
+          <div class="chat-top">
+            <svg viewBox="0 0 240 96" preserveAspectRatio="xMidYMid slice"><path d="M0 70 Q60 52 120 66 T240 60 V96 H0Z" fill="#5CC46B"/><use href="#house" x="150" y="8" width="70" height="76"/><use href="#tree" x="4" y="30" width="50" height="50"/><use href="#owl" x="84" y="34" width="44" height="52"/></svg>
+            <span class="nm">Herr Eule · Makler in Wien</span>
+          </div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+          <div class="qr" id="qr"><button type="button" data-q="jn">Ja/Nein-Frage</button><button type="button" data-q="w">W-Frage</button><button type="button" data-q="re">Сначала</button></div>
+          <div class="ask">Frag etwas…<span><svg class="ic"><use href="#i-send"/></svg></span></div>
+        </div>
+      </div>
+      <div class="why">
+        <h2 class="h2" style="text-align:left">Вопросы: <span class="acc">глагол лезет вперёд</span></h2>
+        <p style="color:var(--mute);margin:12px 0 0;max-width:42ch">Тут глагол наглеет. Он может встать даже на первое место. Смотри чат с совой-риелтором. Жми на кнопки под чатом.</p>
+        <div class="grid4">
+          <div class="it"><span class="ii" style="background:var(--lav)"><svg class="ic" style="color:var(--purple)"><use href="#i-circle-help"/></svg></span><b>Да или нет</b><p>Глагол первым.</p><span class="de">Suchen Sie eine Wohnung?</span></div>
+          <div class="it"><span class="ii" style="background:var(--butter)"><svg class="ic" style="color:#B9770E"><use href="#i-hash"/></svg></span><b>W-Frage</b><p>W-слово первым, глагол вторым.</p><span class="de">Was suchst du?</span></div>
+          <div class="it"><span class="ii" style="background:var(--mint)"><svg class="ic" style="color:var(--green)"><use href="#i-mic"/></svg></span><b>Интонация</b><p>Порядок прямой. Голос вверх.</p><span class="de">Sie suchen eine Wohnung?</span></div>
+          <div class="it"><span class="ii" style="background:#DCEFFF"><svg class="ic" style="color:#2F7FD0"><use href="#i-wand-2"/></svg></span><b>Хвостик</b><p>Добавь в конце и готово.</p><span class="de">…, stimmt das?</span></div>
+        </div>
+        <div class="quote rv" style="margin-top:22px"><svg class="ic q"><use href="#i-quote"/></svg>Риелтор в Вене спрашивает, <b>Suchen Sie eine Wohnung?</b> Говорю, ja. Говорит, <b>Was suchen Sie genau?</b> Говорю, дешёвую. Риелтор задумался. Говорит, dann suchen Sie lange.<small>Квартиру нашёл. Через три месяца.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 5 -->
+<section id="s5">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Шаг 5 · Восклицания</span></div>
+    <div class="wow rv">
+      <div>
+        <h2 class="h2">Немцы удивляются <span class="acc">глаголом</span></h2>
+        <p class="wl2">Восклицание может начаться с глагола. aber и vielleicht тут не «но» и не «может быть». Это усилители. Как русское «ну и».</p>
+      </div>
+      <div class="ill" aria-hidden="true">
+        <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice">
+          <path d="M0 170 Q100 130 200 160 T400 140 V260 H0Z" fill="#7FD67B"/>
+          <use href="#tree" x="10" y="100" width="80" height="80"/>
+          <use href="#floor" x="250" y="10" width="90" height="75"/>
+          <use href="#house" x="236" y="74" width="120" height="130"/>
+          <path d="M0 210 Q140 180 260 214 T400 200 V260 H0Z" fill="#5CC46B"/>
+          <path d="M120 260 C140 230 200 236 230 204" fill="none" stroke="#F2B064" stroke-width="26" stroke-linecap="round"/>
+          <path d="M120 260 C140 230 200 236 230 204" fill="none" stroke="#F8D49C" stroke-width="18" stroke-linecap="round"/>
+          <use href="#bird" x="96" y="150" width="46" height="46"/>
+          <g class="bob"><use href="#owl" x="150" y="112" width="86" height="100"/></g>
+        </svg>
+        <span class="shock">!</span>
+      </div>
+      <div class="wcards">
+        <div class="card wcard"><span class="wi"><svg class="ic"><use href="#i-party-popper"/></svg></span><div class="de"><span><mark>Bist</mark> du aber erwachsen!</span><button class="say" data-say="Bist du aber erwachsen!" aria-label="Послушать"><svg><use href="#spk"/></svg></button></div><p>Ну и вырос же ты!</p><span class="ex"><svg class="ic"><use href="#i-zap"/></svg> глагол первый · aber = «ну и»</span></div>
+        <div class="card wcard"><span class="wi"><svg class="ic"><use href="#i-sparkles"/></svg></span><div class="de"><span><mark>Hat</mark> der vielleicht lange Haare!</span><button class="say" data-say="Hat der vielleicht lange Haare!" aria-label="Послушать"><svg><use href="#spk"/></svg></button></div><p>Ну и длинные у него волосы!</p><span class="ex"><svg class="ic"><use href="#i-zap"/></svg> глагол первый · vielleicht = «ну и»</span></div>
+        <div class="quote" style="font-size:14.5px"><svg class="ic q"><use href="#i-quote"/></svg>Тётя не видела меня пять лет. Говорит, <b>Bist du aber groß!</b> Говорю, я таким и был. Говорит, trotzdem.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="mintbg">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Видео</span></div>
+    <h2 class="h2">Посмотри, <span class="acc">как это звучит</span></h2>
+    <p class="sub">Урок 15 с канала «Немецкий с нуля!». Смотри после схем. Зайдёт быстрее.</p>
+    <div class="blog">
+      <div class="big rv">
+        <button class="yt" id="yt" data-id="UrO85BE0S7c" aria-label="Смотреть видео: обратный порядок слов"><img src="../media/yt.jpg" alt="" loading="lazy" width="480" height="360"><span class="pl"><svg class="ic"><use href="#i-play"/></svg></span></button>
+        <h3 class="h3">Обратный порядок слов. Сегодня, завтра, послезавтра</h3>
+        <p>Heute, morgen, übermorgen в начале предложения. И глагол, который каждый раз стоит вторым.</p>
+        <a class="btn sm" href="https://www.youtube.com/watch?v=UrO85BE0S7c" target="_blank" rel="noopener"><svg class="ic"><use href="#i-youtube"/></svg> Открыть на YouTube</a>
+      </div>
+      <div class="side stg">
+        <div class="bl"><div class="th g1"><svg class="ic"><use href="#i-eye"/></svg><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div><b>Лови глагол</b><p>Слышишь heute или morgen в начале? Жди глагол сразу за ним.</p><span class="rd">Пока смотришь <svg class="ic"><use href="#i-arrow-right"/></svg></span></div></div>
+        <div class="bl"><div class="th g2"><svg class="ic"><use href="#i-mic"/></svg><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div><b>Ставь на паузу</b><p>После каждого примера. Скажи вслух раньше диктора.</p><span class="rd">Пока смотришь <svg class="ic"><use href="#i-arrow-right"/></svg></span></div></div>
+        <div class="bl"><div class="th g5"><svg class="ic"><use href="#i-repeat"/></svg><svg class="o" viewBox="0 0 120 140"><use href="#owl"/></svg></div><div><b>Меняй начало</b><p>Бери пример из видео. Начни с другого слова. Глагол не трогай.</p><span class="rd">После видео <svg class="ic"><use href="#i-arrow-right"/></svg></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISE -->
+<section id="ex">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Упражнение</span></div>
+    <h2 class="h2">Собери <span class="acc">предложение</span></h2>
+    <p class="sub">Пять предложений. Нажимай на слова по порядку. Обстоятельство первым. Глагол вторым.</p>
+    <div class="card ex" id="exBox" aria-live="polite"></div>
+    <div class="legend" style="justify-content:center"><span><i style="background:var(--butter)"></i>1 · обстоятельство</span><span><i style="background:var(--purple)"></i>2 · глагол</span><span><i style="background:#CFF2DC"></i>3 · подлежащее</span><span><i style="background:var(--lav)"></i>конец · вторая часть</span></div>
+    <div class="answers">
+      <div class="fq" id="ansFq"><button type="button" aria-expanded="false"><svg class="ic" style="color:var(--purple)"><use href="#i-lightbulb"/></svg>Ответы с объяснениями<span class="pm"><svg class="ic"><use href="#i-plus"/></svg></span></button><div class="fa"><div id="ansList"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="mintbg">
+  <svg class="swoosh" style="right:-4%;top:20px" viewBox="0 0 300 120"><path d="M300 20 Q160 120 0 90 Q150 110 300 60Z" fill="#7EE3C3" opacity=".6"/></svg>
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">FAQ</span></div>
+    <h2 class="h2">Всё, что нужно знать <span class="acc">про инверсию</span></h2>
+    <div class="faq" id="faqList">
+      <div class="fq open"><button type="button" aria-expanded="true">На первом месте может стоять только время или место?<span class="pm"><svg class="ic"><use href="#i-minus"/></svg></span></button><div class="fa"><div><p>Нет. Любая часть. Дополнение: <b>Den Film kenne ich schon.</b> Причина: <b>Deshalb lerne ich Deutsch.</b> Правило одно. После первой части идёт глагол.</p></div></div></div>
+      <div class="fq"><button type="button" aria-expanded="false">А und, aber, denn тоже занимают первое место?<span class="pm"><svg class="ic"><use href="#i-plus"/></svg></span></button><div class="fa"><div><p>Нет. und, aber, oder, denn, sondern стоят на нулевом месте. Они не считаются. <b>Ich bin müde, aber ich arbeite.</b> После aber прямой порядок. Как будто его и не было.</p></div></div></div>
+      <div class="fq"><button type="button" aria-expanded="false">Обратный порядок звучит лучше прямого?<span class="pm"><svg class="ic"><use href="#i-plus"/></svg></span></button><div class="fa"><div><p>Не лучше и не хуже. Это акцент. Начал с <b>Morgen</b>, значит главное тут «завтра». В живой речи немцы начинают с времени и места постоянно. Звучит естественно.</p></div></div></div>
+      <div class="fq"><button type="button" aria-expanded="false">А что в придаточных с weil или dass?<span class="pm"><svg class="ic"><use href="#i-plus"/></svg></span></button><div class="fa"><div><p>Там своё правило. Глагол уезжает в самый конец: <b>…, weil ich morgen ins Kino gehe.</b> Это отдельная тема. Сегодня только главные предложения.</p></div></div></div>
+      <div class="fq"><button type="button" aria-expanded="false">Как запомнить быстро?<span class="pm"><svg class="ic"><use href="#i-plus"/></svg></span></button><div class="fa"><div><p>Каждое утро три предложения. Начни с <b>Gestern</b>, <b>Heute</b>, <b>Morgen</b>. Найди глагол. Посчитай до двух. Неделя и рука сама ставит его на место.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="sum">
+  <div class="wrap">
+    <div class="tagrow"><span class="tag">Итог</span></div>
+    <h2 class="h2">Шпаргалка <span class="acc">на один экран</span></h2>
+    <div class="formula rv" aria-label="Формула обратного порядка">
+      <span>Morgen<small>1 · что-то</small></span><span class="v">gehe<small>2 · глагол</small></span><span>ich<small>3 · кто</small></span><span>ins Kino<small>4 · остальное</small></span>
+    </div>
+    <div class="sumg">
+      <div class="sc y rv">
+        <b class="t">Четыре правила</b>
+        <ul>
+          <li><svg class="ic"><use href="#i-circle-check"/></svg><span>Обратный порядок: в начале не подлежащее, а что-то другое.</span></li>
+          <li><svg class="ic"><use href="#i-circle-check"/></svg><span>Глагол всегда на втором месте.</span></li>
+          <li><svg class="ic"><use href="#i-circle-check"/></svg><span>Глагол из двух частей? Вторая уезжает в конец.</span></li>
+          <li><svg class="ic"><use href="#i-circle-check"/></svg><span>В вопросах и восклицаниях глагол может выйти первым.</span></li>
+        </ul>
+      </div>
+      <div class="sc p rv">
+        <b class="t">Проверка за секунду</b>
+        <ul>
+          <li><svg class="ic"><use href="#i-footprints"/></svg><span>Найди глагол.</span></li>
+          <li><svg class="ic"><use href="#i-hash"/></svg><span>Посчитай части перед ним. Должна быть одна.</span></li>
+          <li><svg class="ic"><use href="#i-signpost"/></svg><span>Подлежащее не в начале? Ставь его сразу после глагола.</span></li>
+        </ul>
+        <div class="cir"><svg viewBox="0 0 120 140"><use href="#owl"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="outro" id="outro">
+  <div class="wrap">
+    <h2 class="h2">Глагол второй. <br><span>Ты первый.</span></h2>
+    <p>Скинь страницу другу, который до сих пор говорит Morgen ich gehe. Ему нужнее.</p>
+    <div class="cta"><a class="btn" href="#ex"><svg class="ic"><use href="#i-repeat"/></svg> Упражнение ещё раз</a><a class="btn ghost" href="#hero"><svg class="ic" style="rotate:-90deg"><use href="#i-arrow-right"/></svg> Наверх</a></div>
+  </div>
+  <svg class="ground2" viewBox="0 0 400 150" aria-hidden="true">
+    <path d="M0 80 Q100 40 200 70 T400 56 V150 H0Z" fill="#8EDB86"/>
+    <use href="#house" x="20" y="22" width="80" height="87"/>
+    <use href="#house" x="300" y="12" width="90" height="98"/>
+    <use href="#tree" x="220" y="20" width="70" height="70"/>
+    <path d="M0 110 Q120 86 240 110 T400 100 V150 H0Z" fill="#5CC46B"/>
+    <path d="M150 150 C160 128 210 128 220 104" fill="none" stroke="#F2B064" stroke-width="24" stroke-linecap="round"/>
+    <path d="M150 150 C160 128 210 128 220 104" fill="none" stroke="#F8D49C" stroke-width="16" stroke-linecap="round"/>
+    <g class="bob"><use href="#owl" x="120" y="66" width="56" height="66"/></g>
+  </svg>
+</section>
+<footer>Stellas Deutsch · гайд по немецкой грамматике · <a href="https://t.me/stellasdeutsch" target="_blank" rel="noopener">@stellasdeutsch</a></footer>
+</main>
+
+<script>
+function invInit(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = window.gsap && window.ScrollTrigger ? window.gsap : null;
+  if(G){ try{ G.registerPlugin(ScrollTrigger); window.SplitText && G.registerPlugin(SplitText); window.MotionPathPlugin && G.registerPlugin(MotionPathPlugin); }catch(e){ G = null; } }
+  if(G){ document.documentElement.classList.add('gs'); ScrollTrigger.config({ignoreMobileResize:true}); }
+  var MP = G && window.MotionPathPlugin, ST = G && window.SplitText;
+  function $(s,r){ return (r||document).querySelector(s); }
+  function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
+  function rel(el, box){ var a = el.getBoundingClientRect(), b = box.getBoundingClientRect(); return {x:a.left-b.left, y:a.top-b.top, w:a.width, h:a.height}; }
+
+  /* ---------- speech ---------- */
+  var tts = 'speechSynthesis' in window;
+  if(!tts) document.documentElement.classList.add('no-tts');
+  var deVoice = null;
+  function pickVoice(){ try{ var v = speechSynthesis.getVoices(); deVoice = v.find(function(x){ return /^de/i.test(x.lang); }) || null; }catch(e){} }
+  if(tts){ pickVoice(); try{ speechSynthesis.onvoiceschanged = pickVoice; }catch(e){} }
+  function say(text, btn){
+    if(!tts || !text) return;
+    try{
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = 'de-DE'; u.rate = .88; if(deVoice) u.voice = deVoice;
+      if(btn){ btn.classList.add('on'); u.onend = u.onerror = function(){ btn.classList.remove('on'); }; }
+      speechSynthesis.speak(u);
+    }catch(e){}
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-say]');
+    if(!b) return;
+    say(b.dataset.say, b.classList.contains('say') ? b : null);
+  });
+  function whenVisible(el, on, off, th){
+    if(!el) return;
+    if(!('IntersectionObserver' in window)){ on(); return; }
+    new IntersectionObserver(function(es){ es.forEach(function(en){ en.isIntersecting ? on() : (off && off()); }); }, {threshold:th||.3}).observe(el);
+  }
+  function confetti(host, n){
+    if(!G || reduce) return;
+    var colors = ['#7652BB','#F9AD2C','#5CC46B','#3FD0DF','#F36D8E','#B39BF2'];
+    for(var i=0;i<n;i++){
+      var c = document.createElement('i'); c.className = 'conf'; c.style.background = colors[i%colors.length]; host.appendChild(c);
+      G.fromTo(c, {x:0, y:0, rotation:0}, {x:G.utils.random(-240,240), y:G.utils.random(-200,160), rotation:G.utils.random(-540,540), opacity:0, duration:G.utils.random(1,1.8), ease:'power3.out', onComplete:(function(el){ return function(){ el.remove(); }; })(c)});
+    }
+  }
+
+  /* ---------- header ---------- */
+  var top = $('#top');
+  function hdr(){ top.classList.toggle('solid', window.scrollY > 40); }
+  window.addEventListener('scroll', hdr, {passive:true}); hdr();
+
+  /* ---------- reveal ---------- */
+  $$('.stg').forEach(function(g){ Array.prototype.forEach.call(g.children, function(c,i){ c.style.setProperty('--i', i); }); });
+  if(G && !reduce){
+    $$('.h2').forEach(function(h){
+      var targets = h;
+      if(ST){ try{ var sp = new SplitText(h, {type:'words', wordsClass:'wd'}); targets = sp.words; }catch(e){} }
+      G.from(targets, {yPercent:60, rotation:4, transformOrigin:'0% 100%', duration:.8, ease:'back.out(2)', stagger:.04, scrollTrigger:{trigger:h, start:'top 88%', once:true}});
+    });
+    G.set('.rv', {y:44});
+    ScrollTrigger.batch('.rv', {start:'top 94%', once:true, onEnter:function(b){ G.to(b, {y:0, duration:.9, ease:'power3.out', stagger:.08}); }});
+    $$('.stg').forEach(function(g){ G.from(g.children, {y:34, scale:.94, duration:.7, ease:'back.out(1.8)', stagger:.08, scrollTrigger:{trigger:g, start:'top 88%', once:true}}); });
+    ScrollTrigger.batch('.tag', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {scale:.5, rotation:-8, duration:.7, ease:'back.out(2.5)', stagger:.05}); }});
+    ScrollTrigger.batch('.feat', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {y:60, rotation:function(){ return G.utils.random(-5,5); }, duration:.8, ease:'back.out(1.6)', stagger:.07}); G.from($$('svg.o', b[0].parentNode), {yPercent:60, duration:.8, ease:'back.out(2.4)', stagger:.07, delay:.25}); }});
+    ScrollTrigger.batch('.rev', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {y:50, rotation:function(i){ return [-4,3,-2][i%3]; }, duration:.8, ease:'back.out(1.7)', stagger:.1}); }});
+    ScrollTrigger.batch('.why .it', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {y:26, duration:.6, ease:'back.out(2)', stagger:.07}); G.from($$('.ii', b[0].parentNode), {scale:.3, rotation:-120, duration:.8, ease:'back.out(2.4)', stagger:.07}); }});
+    ScrollTrigger.batch('.wcard', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {x:50, rotation:3, duration:.8, ease:'back.out(1.8)', stagger:.12}); }});
+    ScrollTrigger.batch('.fq', {start:'top 95%', once:true, onEnter:function(b){ G.from(b, {y:24, duration:.6, ease:'power3.out', stagger:.06}); }});
+    G.from('.formula span', {y:-60, rotation:function(){ return G.utils.random(-20,20); }, duration:1, ease:'bounce.out', stagger:.1, scrollTrigger:{trigger:'.formula', start:'top 90%', once:true}});
+    G.to('.wow .shock', {rotation:-8, scale:1.3, yoyo:true, repeat:-1, duration:.5, ease:'sine.inOut'});
+    // hero parallax
+    G.to('.hero .stage', {yPercent:12, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+    G.to('.hero .phone', {yPercent:-10, rotation:-3, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+    G.to('.swoosh', {xPercent:12, ease:'none', scrollTrigger:{trigger:'main', start:'top top', end:'bottom bottom', scrub:1}});
+  } else if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:.12});
+    $$('.rv').forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- hero phone: order flips ---------- */
+  (function(){
+    var box = $('#heroSatz'), lbl = $('#heroLbl'), inv = false, t = null;
+    var A = {ich:[0,'Ich'], gehe:[1,'gehe'], morgen:[2,'morgen'], kino:[3,'ins Kino']};
+    var B = {ich:[2,'ich'], gehe:[1,'gehe'], morgen:[0,'Morgen'], kino:[3,'ins Kino']};
+    function set(s){ $$('.tk', box).forEach(function(tk){ var v = s[tk.dataset.k]; tk.style.setProperty('--c', v[0]); tk.textContent = v[1]; }); }
+    function tick(){ inv = !inv; set(inv ? B : A); lbl.textContent = inv ? 'Обратный порядок · глагол стоит' : 'Прямой порядок'; }
+    if(!reduce) whenVisible(box, function(){ if(t) return; t = setInterval(tick, 2600); }, function(){ clearInterval(t); t = null; }, .1);
+  })();
+
+  /* ---------- story arrows ---------- */
+  $$('.arrows button').forEach(function(b){ b.onclick = function(){ var r = $('#revs'); r.scrollBy({left:(+b.dataset.dir) * (r.querySelector('.rev').offsetWidth + 14), behavior:'smooth'}); }; });
+
+  /* ---------- number roll ---------- */
+  $$('.roll').forEach(function(el){
+    var to = +el.dataset.to, done = false;
+    whenVisible(el, function(){
+      if(done || reduce) return; done = true;
+      var n = 0, t = setInterval(function(){
+        n++; el.textContent = n < 12 ? Math.floor(Math.random()*9)+1 : to;
+        if(n >= 12){ clearInterval(t); if(G) G.fromTo(el, {scale:1.6, rotation:-12}, {scale:1, rotation:0, duration:.7, ease:'elastic.out(1,.4)'}); }
+      }, 60 + to*12);
+    }, null, .6);
+  });
+
+  /* ---------- step 1: sentence grid stepper ---------- */
+  (function(){
+    var grid = $('#sgrid'), cap = $('#sgCap'), dots = $$('#sgDots i'), sayB = $('#sgSay'), tks = {};
+    $$('.tk', grid).forEach(function(t){ tks[t.dataset.k] = t; });
+    var S = [
+      {p:{ich:[0,50,'Ich'], gehe:[1,50], morgen:[2,50,'morgen'], kino:[3,50]}, c:'<b>Ich gehe morgen ins Kino.</b> Прямой порядок. Ich первый. Глагол второй. Всё честно.', s:'Ich gehe morgen ins Kino.'},
+      {p:{ich:[0,50,'Ich'], gehe:[1,50], morgen:[2,17,'morgen'], kino:[3,50]}, hot:'morgen', c:'<b>Хочу начать с «завтра».</b> Беру morgen. Тяну в начало.', s:'morgen'},
+      {p:{ich:[2,83,'ich'], gehe:[1,50], morgen:[0,17,'Morgen'], kino:[3,50]}, hot:'morgen', c:'<b>morgen идёт вперёд.</b> ich уступает место. Глагол gehe даже не смотрит.', s:'Morgen'},
+      {p:{ich:[2,50,'ich'], gehe:[1,50], morgen:[0,50,'Morgen'], kino:[3,50]}, glow:1, c:'<b>Morgen gehe ich ins Kino.</b> Обратный порядок. ich переехал на третье место. Глагол на втором. Как и был.', s:'Morgen gehe ich ins Kino.'},
+      {p:{ich:[2,50,'ich'], gehe:[1,50], morgen:[0,50,'Morgen'], kino:[3,50]}, lab:1, c:'<b>Формула.</b> Что-то · глагол · подлежащее · остальное. Глагол за всё время не сдвинулся ни разу.', s:'Morgen gehe ich ins Kino.'}
+    ];
+    var step = 0, auto = null;
+    function set(n){
+      step = Math.max(0, Math.min(S.length-1, n)); var st = S[step];
+      Object.keys(st.p).forEach(function(k){ var v = st.p[k], t = tks[k]; t.style.setProperty('--c', v[0]); t.style.setProperty('--y', v[1] + '%'); if(v[2]) t.textContent = v[2]; t.classList.toggle('hot', st.hot === k); });
+      tks.gehe.classList.remove('glow'); if(st.glow){ void tks.gehe.offsetWidth; tks.gehe.classList.add('glow'); }
+      grid.classList.toggle('labels', !!st.lab);
+      dots.forEach(function(d,i){ d.classList.toggle('on', i <= step); });
+      cap.innerHTML = st.c; sayB.dataset.say = st.s;
+      if(G && !reduce) G.fromTo(cap, {x:16}, {x:0, duration:.4, ease:'power2.out'});
+    }
+    function play(){ clearInterval(auto); set(0); auto = setInterval(function(){ if(step >= S.length-1){ clearInterval(auto); return; } set(step+1); }, 2300); }
+    $('#sgNext').onclick = function(){ clearInterval(auto); set(step+1); };
+    $('#sgPrev').onclick = function(){ clearInterval(auto); set(step-1); };
+    $('#sgPlay').onclick = play;
+    set(reduce ? 4 : 0);
+    var played = false;
+    if(!reduce) whenVisible(grid, function(){ if(!played){ played = true; setTimeout(play, 300); } }, null, .5);
+  })();
+
+  /* ---------- RU vs DE chart ---------- */
+  whenVisible($('#vs'), function(){ $('#vs').classList.add('go'); }, null, .15);
+
+  /* ---------- step 2: street ---------- */
+  (function(){
+    var D = {
+      wann:[['Morgen','gehe','ich','ins Kino.','Завтра я иду в кино.'],['Gestern','waren','wir','bei unseren Freunden.','Вчера мы были у друзей.'],['Am Mittwoch','habe','ich','Deutschkurs.','В среду у меня курс немецкого.'],['Im März','besuche','ich','meine Großeltern.','В марте я навещу бабушку и дедушку.']],
+      wo:[['Im Wald','sammeln','wir','Pilze.','В лесу мы собираем грибы.'],['Im Urlaub','schlafe','ich','bis zehn.','В отпуске я сплю до десяти.'],['In den Ferien','arbeitet','mein Bruder','bei Spar.','На каникулах брат работает в Spar.'],['Am Meer','ist','es','immer windig.','На море всегда ветрено.']]
+    };
+    var chips = $('#chips'), street = $('#street'), owl = $('#wowl'), group = 'wann', cur = null, touched = false, demo = null, di = 0;
+    var L = [$('#h1'), $('#h2'), $('#h3')], rest = $('#h4'), de = $('#stDe'), ru = $('#stRu'), sb = $('#stSay');
+    var houses = $$('.hs', street);
+    function drawChips(){
+      chips.innerHTML = D[group].map(function(r,i){ return '<button type="button" data-i="'+i+'" aria-pressed="false">'+r[0]+'</button>'; }).join('');
+      $$('button', chips).forEach(function(b){ b.onclick = function(){ touched = true; clearInterval(demo); pick(+b.dataset.i, b); }; });
+      if(G && !reduce) G.from($$('button', chips), {y:16, scale:.8, duration:.5, ease:'back.out(2.4)', stagger:.05});
+    }
+    function owlTo(i){
+      if(!houses[i]) return;
+      var r = rel(houses[i], street), x = r.x + r.w/2 - 26;
+      if(G && !reduce){ G.to(owl, {x:x, duration:.5, ease:'power2.inOut'}); G.fromTo(owl, {y:0}, {y:-16, duration:.25, yoyo:true, repeat:1, ease:'power1.out'}); }
+      else owl.style.translate = x + 'px 0';
+    }
+    function apply(r){
+      L[0].textContent = r[0]; L[1].textContent = r[1]; L[2].textContent = r[2]; rest.textContent = r[3];
+      de.innerHTML = '<span class="p1">'+r[0]+'</span> <span class="p2">'+r[1]+'</span> <span class="p3">'+r[2]+'</span> '+r[3];
+      ru.textContent = r[4]; sb.dataset.say = r[0]+' '+r[1]+' '+r[2]+' '+r[3];
+      if(G && !reduce){
+        L.concat([rest]).forEach(function(el,i){ G.fromTo(el, {scale:.4, rotation:i%2?10:-10}, {scale:1, rotation:0, duration:.6, ease:'back.out(2.6)', delay:i*.35}); });
+        owlTo(0); setTimeout(function(){ owlTo(1); }, 350); setTimeout(function(){ owlTo(2); }, 700);
+      }
+    }
+    function pick(i, btn){
+      var r = D[group][i]; cur = i;
+      $$('button', chips).forEach(function(b){ b.setAttribute('aria-pressed', b === btn); });
+      if(G && MP && !reduce && btn){
+        var wrap = street.parentNode, a = rel(btn, wrap), b = rel(L[0], wrap);
+        var f = document.createElement('span'); f.className = 'flychip'; f.textContent = r[0]; wrap.appendChild(f);
+        G.set(f, {x:a.x, y:a.y});
+        G.to(f, {motionPath:{path:[{x:a.x,y:a.y},{x:(a.x+b.x)/2, y:Math.min(a.y,b.y)-70},{x:b.x,y:b.y}], curviness:1.4}, rotation:360, duration:.75, ease:'power2.inOut', onComplete:function(){ f.remove(); apply(r); }});
+      } else apply(r);
+    }
+    $$('[data-g]').forEach(function(b){ b.onclick = function(){ touched = true; clearInterval(demo); group = b.dataset.g; $$('[data-g]').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); drawChips(); pick(0, $('button', chips)); }; });
+    drawChips(); apply(D.wann[3]); $$('button', chips)[3].setAttribute('aria-pressed', true);
+    if(!reduce) whenVisible(street, function(){
+      if(touched || demo) return;
+      demo = setInterval(function(){
+        if(touched){ clearInterval(demo); return; }
+        di = (di + 1) % 8; var g = di < 4 ? 'wann' : 'wo';
+        if(g !== group){ group = g; $$('[data-g]').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.g === g); }); drawChips(); }
+        pick(di % 4, $$('button', chips)[di % 4]);
+      }, 3400);
+    }, function(){ clearInterval(demo); demo = null; }, .4);
+    window.addEventListener('resize', function(){ owlTo(2); });
+    setTimeout(function(){ owlTo(2); }, 50);
+  })();
+
+  /* ---------- decision tree ---------- */
+  (function(){
+    var X = [['<u>Gestern</u> war ich müde.',1],['<u>Wir</u> lernen Deutsch.',0],['<u>Was</u> machst du heute?',2],['<u>Kommst</u> du mit?',3],['<u>Im Wald</u> sammeln wir Pilze.',1],['<u>Ich</u> trinke Kaffee.',0],['<u>Wohin</u> fährst du?',2],['<u>Hast</u> du Zeit?',3],['<u>Den Film</u> kenne ich schon.',1]];
+    var dq = $('#dq'), brs = $$('#dbr .br'), rl = $('#drl'), box = $('#dbr'), k = 0, t = null;
+    function show(i){
+      var x = X[i]; dq.innerHTML = x[0];
+      brs.forEach(function(b){ b.classList.toggle('hit', +b.dataset.b === x[1]); });
+      var b = brs[x[1]]; rl.style.height = (b.offsetTop + b.offsetHeight/2 + 14) + 'px';
+      if(G && !reduce) G.fromTo(dq, {y:-14, scale:.85, rotation:-4}, {y:0, scale:1, rotation:0, duration:.55, ease:'back.out(2.5)'});
+    }
+    show(0);
+    if(!reduce) whenVisible(box, function(){ if(t) return; t = setInterval(function(){ k = (k+1) % X.length; show(k); }, 2600); }, function(){ clearInterval(t); t = null; }, .2);
+  })();
+
+  /* ---------- step 3: bracket ---------- */
+  (function(){
+    var B = {
+      trenn:{r:['Morgens','ich','um 8 Uhr'], w:'aufstehen', h:'stehe', t:'auf', de:'Morgens stehe ich um 8 Uhr auf.', ru:'По утрам я встаю в 8 часов.', inf:'aufstehen → stehe … auf'},
+      modal:{r:['Im Urlaub','ich','nach Deutschland'], w:'will fahren', h:'will', t:'fahren', de:'Im Urlaub will ich nach Deutschland fahren.', ru:'В отпуске я хочу поехать в Германию.', inf:'wollen + fahren → will … fahren'},
+      perf:{r:['Im letzten Januar','ich','in Berlin'], w:'habe gewohnt', h:'habe', t:'gewohnt', de:'Im letzten Januar habe ich in Berlin gewohnt.', ru:'В прошлом январе я жил в Берлине.', inf:'haben + gewohnt → habe … gewohnt'}
+    };
+    var box = $('#brk'), W = $('#bW'), H = $('#bH'), T = $('#bT'), S = $('#bS'), C = $('#bC'), type = 'trenn', timers = [], played = false;
+    function clear(){ timers.forEach(clearTimeout); timers = []; if(G) G.killTweensOf(T); }
+    function placeClamp(){
+      var r2 = rel($('.r2', box), box), r5 = rel($('.r5', box), box);
+      C.style.top = (r2.y + r2.h/2) + 'px'; C.style.height = (r5.y - r2.y) + 'px';
+    }
+    function tl(){ var s = rel(S, box); return s.x + (s.w - T.offsetWidth)/2; }
+    function placeTail(){ var s = rel(S, box); T.style.left = tl() + 'px'; T.style.top = (s.y + s.h/2 - T.offsetHeight/2) + 'px'; }
+    function offs(){ var h = rel(H, box), s = rel(S, box); return {x:h.x + h.w + 6 - tl(), y:(h.y + h.h/2) - (s.y + s.h/2)}; }
+    function setT(x, y){ if(G) G.set(T, {x:x, y:y}); else T.style.translate = x + 'px ' + y + 'px'; }
+    function fill(){
+      var d = B[type];
+      $('#b1').textContent = d.r[0]; $('#b3').textContent = d.r[1]; $('#b4').textContent = d.r[2];
+      W.textContent = d.w; H.textContent = d.h; T.textContent = d.t;
+      $('#bDe').textContent = d.de; $('#bSay').dataset.say = d.de; $('#bRu').textContent = d.ru; $('#bInf').textContent = d.inf;
+    }
+    function finalState(){ W.classList.add('hide'); H.classList.remove('hide'); T.classList.remove('ghost'); placeTail(); setT(0,0); box.classList.add('draw'); placeClamp(); }
+    function play(){
+      clear(); fill(); box.classList.remove('draw'); T.classList.remove('css-fly');
+      W.classList.remove('hide'); H.classList.add('hide'); T.classList.add('ghost'); placeClamp();
+      if(reduce){ finalState(); return; }
+      if(G) G.fromTo(W, {scale:.6}, {scale:1, duration:.5, ease:'back.out(3)'});
+      timers.push(setTimeout(function(){
+        W.classList.add('hide'); H.classList.remove('hide'); placeTail();
+        var o = offs(); setT(o.x, o.y); T.classList.remove('ghost');
+        if(G){ G.fromTo(H, {x:6, rotation:-6}, {x:0, rotation:0, duration:.5, ease:'elastic.out(1,.4)'}); }
+      }, 1100));
+      timers.push(setTimeout(function(){
+        var o = offs();
+        if(G && MP){ G.fromTo(T, {x:o.x, y:o.y}, {motionPath:{path:[{x:o.x,y:o.y},{x:o.x + 120, y:o.y/2},{x:0,y:0}], curviness:1.5}, rotation:360, duration:1.1, ease:'power2.inOut', onComplete:function(){ G.fromTo(T, {scale:1.35}, {scale:1, duration:.5, ease:'back.out(3)'}); }}); }
+        else { T.classList.add('css-fly'); void T.offsetWidth; T.style.translate = '0px 0px'; }
+      }, 2300));
+      timers.push(setTimeout(function(){ box.classList.add('draw'); }, 3500));
+    }
+    $$('[data-br]').forEach(function(b){ b.onclick = function(){ type = b.dataset.br; $$('[data-br]').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); play(); }; });
+    $('#bPlay').onclick = play;
+    fill(); finalState();
+    if(!reduce) whenVisible(box, function(){ if(!played){ played = true; play(); } }, null, .5);
+    window.addEventListener('resize', function(){ placeClamp(); placeTail(); });
+  })();
+
+  /* ---------- step 4: chat ---------- */
+  (function(){
+    var chat = $('#chat'), timers = [], started = false;
+    var SCRIPT = [
+      ['o','Guten Tag! <b class="v">Suchen</b> <i class="s">Sie</i> eine Wohnung?','Да/нет · глагол первый'],
+      ['m','Ja! <u class="w">Was</u> <b class="v">kostet</b> <i class="s">die Wohnung</i>?','W-Frage · W первым, глагол вторым'],
+      ['o','Tausend Euro. <i class="s">Sie</i> <b class="v">suchen</b> etwas Billiges? Stimmt das?','Интонация + хвостик'],
+      ['m','Stimmt. <b class="v">Haben</b> <i class="s">Sie</i> etwas für 500?','Да/нет · глагол первый'],
+      ['o','<b class="v">Sind</b> <i class="s">Sie</i> aber optimistisch!','Восклицание · глагол первый']
+    ];
+    var JN = [['<b class="v">Kommst</b> <i class="s">du</i> heute?','Kommst первым. du вторым. Ответ да или нет.'],['<b class="v">Hast</b> <i class="s">du</i> Zeit?','Hast первым. Это вопрос да/нет.'],['<b class="v">Wohnen</b> <i class="s">Sie</i> in Wien?','Wohnen первым. Sie сразу за ним.'],['<b class="v">Kannst</b> <i class="s">du</i> mir helfen?','Kannst первым. helfen в конце. Рамка!']];
+    var WQ = [['<u class="w">Wo</u> <b class="v">wohnst</b> <i class="s">du</i>?','Wo первым. wohnst вторым. du третьим.'],['<u class="w">Wann</u> <b class="v">kommst</b> <i class="s">du</i>?','Wann на первом. Глагол на втором.'],['<u class="w">Warum</u> <b class="v">lernst</b> <i class="s">du</i> Deutsch?','Warum первым. Глагол вторым. Как всегда.'],['<u class="w">Wie</u> <b class="v">heißt</b> <i class="s">du</i>?','Wie первым. heißt вторым.']];
+    var ji = 0, wi = 0;
+    function clear(){ timers.forEach(clearTimeout); timers = []; }
+    function scroll(){ chat.scrollTop = chat.scrollHeight; }
+    function add(who, html, tag){
+      var m = document.createElement('div'); m.className = 'msg' + (who === 'm' ? ' me' : '');
+      m.innerHTML = '<div class="bub">' + html + '</div>' + (tag ? '<span class="t">' + tag + '</span>' : '');
+      chat.appendChild(m); while(chat.children.length > 14) chat.removeChild(chat.firstChild); scroll();
+      var plain = m.querySelector('.bub').textContent; if(/[äöüßA-Za-z]/.test(plain) && who !== 'x') m.querySelector('.bub').dataset.say = plain;
+    }
+    function typing(who){ var t = document.createElement('div'); t.className = 'typing' + (who === 'm' ? ' me' : ''); t.innerHTML = '<i></i><i></i><i></i>'; chat.appendChild(t); scroll(); return t; }
+    function seq(list, startDelay){
+      var d = startDelay || 0;
+      list.forEach(function(x){
+        timers.push(setTimeout(function(){ var t = typing(x[0]); timers.push(setTimeout(function(){ t.remove(); add(x[0], x[1], x[2]); }, reduce ? 0 : 750)); }, d));
+        d += reduce ? 10 : 1700;
+      });
+    }
+    function run(){ clear(); chat.innerHTML = ''; seq(SCRIPT, 300); }
+    $$('#qr button').forEach(function(b){ b.onclick = function(){
+      clear();
+      var q = b.dataset.q;
+      if(q === 're'){ run(); return; }
+      var x = q === 'jn' ? JN[ji++ % JN.length] : WQ[wi++ % WQ.length];
+      seq([['m', x[0], q === 'jn' ? 'Да/нет' : 'W-Frage'], ['o', x[1], '']], 0);
+    }; });
+    whenVisible(chat, function(){ if(started) return; started = true; run(); }, null, .3);
+  })();
+
+  /* ---------- FAQ + answers accordion ---------- */
+  function acc(fq){
+    var b = $('button', fq);
+    b.onclick = function(){
+      var open = !fq.classList.contains('open');
+      fq.classList.toggle('open', open); b.setAttribute('aria-expanded', open);
+      var u = $('.pm use', fq); if(u) u.setAttribute('href', open ? '#i-minus' : '#i-plus');
+    };
+  }
+  $$('.fq').forEach(acc);
+
+  /* ---------- video facade ---------- */
+  var yt = $('#yt');
+  yt.onclick = function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + yt.dataset.id + '?autoplay=1&rel=0';
+    f.title = 'Обратный порядок слов в немецком'; f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen = true;
+    yt.innerHTML = ''; yt.appendChild(f); yt.onclick = null;
+  };
+
+  /* ---------- exercise ---------- */
+  (function(){
+    var EX = [
+      {t:['morgen','ich','ins Kino','gehe'], a:[0,3,1,2], ru:'Завтра я иду в кино.', x:'Morgen на первом месте. Это время. Глагол gehe сразу вторым. ich отходит на третье. ins Kino в хвосте.'},
+      {t:['Im Sommer','wir','nach Italien','fahren','wollen'], a:[0,4,1,2,3], ru:'Летом мы хотим поехать в Италию.', x:'Im Sommer открывает. wollen вторым, это рабочая часть. wir третьим. fahren уезжает в самый конец. Рамка.', tail:3},
+      {t:['Gestern','meine Freunde','bei mir','waren'], a:[0,3,1,2], ru:'Вчера мои друзья были у меня.', x:'Gestern первым. waren вторым. meine Freunde третьими. Подлежащее из двух слов, но место всё равно одно. bei mir в конце.'},
+      {t:['Am Wochenende','ich','das Buch','lesen','möchte'], a:[0,4,1,2,3], ru:'На выходных я хочу почитать книгу.', x:'Am Wochenende первым. möchte вторым. ich третьим. lesen в конце. Бутерброд: möchte … lesen.', tail:3},
+      {t:['Im Urlaub','du','viel','fotografieren','kannst'], a:[0,4,1,2,3], ru:'В отпуске ты можешь много фотографировать.', x:'Im Urlaub первым. kannst вторым. du третьим. viel в середине. fotografieren закрывает рамку.', tail:3}
+    ];
+    var box = $('#exBox'), qi = 0, placed = [], res = [], tries = 0;
+    function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+    function low(s){ return s.charAt(0).toLowerCase() + s.slice(1); }
+    function disp(it, ti, pos){ var w = it.t[ti]; if(pos === 0) return cap(w); if(ti === it.a[0]) return low(w); return w; }
+    function sentence(it){ return it.a.map(function(ti,p){ return disp(it, ti, p); }).join(' ') + '.'; }
+    function role(it, ti, p){ if(p === 0) return 'r1'; if(p === 1) return 'r2'; if(p === 2) return 'r3'; if(it.tail !== undefined && ti === it.tail) return 'r4'; return ''; }
+    function bar(){ return '<div class="exbar">' + EX.map(function(_,i){ return '<i class="' + (res[i] === true ? 'ok' : res[i] === false ? 'bad' : i === qi ? 'cur' : '') + '"></i>'; }).join('') + '</div>'; }
+    function draw(){
+      var it = EX[qi]; placed = []; tries = 0;
+      box.innerHTML = bar() + '<p class="exn">Предложение ' + (qi+1) + ' из ' + EX.length + '</p><p class="exr">' + it.ru + '</p>' +
+        '<div class="zone" id="zone"></div><div class="pool" id="pool">' + it.t.map(function(w,i){ return '<button type="button" class="tile" data-i="'+i+'">'+w+'</button>'; }).join('') + '</div>' +
+        '<div class="exbtns"><button type="button" class="btn sm" id="exCheck" disabled><svg class="ic"><use href="#i-check"/></svg> Проверить</button><button type="button" class="btn sm ghost" id="exReset"><svg class="ic"><use href="#i-rotate-ccw"/></svg> Сбросить</button><button type="button" class="btn sm ghost" id="exShow"><svg class="ic"><use href="#i-eye"/></svg> Показать ответ</button></div>' +
+        '<div class="exx" id="exx"></div>';
+      $$('#pool .tile', box).forEach(function(b){ b.onclick = function(){ if(b.classList.contains('gone')) return; placed.push(+b.dataset.i); b.classList.add('gone'); zone(); }; });
+      $('#exCheck').onclick = check; $('#exReset').onclick = function(){ placed = []; $$('#pool .tile', box).forEach(function(b){ b.classList.remove('gone'); }); zone(); };
+      $('#exShow').onclick = function(){ reveal(false, true); };
+      if(G && !reduce) G.from($$('#pool .tile', box), {y:20, scale:.8, rotation:function(){ return G.utils.random(-10,10); }, duration:.5, ease:'back.out(2.4)', stagger:.05});
+      zone();
+    }
+    function zone(final){
+      var it = EX[qi], z = $('#zone');
+      z.className = 'zone';
+      z.innerHTML = placed.map(function(ti,p){ return '<button type="button" class="tile' + (final ? ' ' + role(it, ti, p) : '') + '" data-p="'+p+'">' + disp(it, ti, p) + '</button>'; }).join('');
+      if(!final) $$('.tile', z).forEach(function(b){ b.onclick = function(){ var p = +b.dataset.p, ti = placed[p]; placed.splice(p,1); $('#pool .tile[data-i="'+ti+'"]', box).classList.remove('gone'); zone(); }; });
+      var last = z.lastElementChild; if(last && G && !reduce && !final) G.from(last, {y:30, scale:.7, duration:.4, ease:'back.out(2.6)'});
+      $('#exCheck').disabled = placed.length !== it.t.length;
+    }
+    function check(){
+      var it = EX[qi], ok = placed.every(function(ti,p){ return ti === it.a[p]; });
+      tries++;
+      if(ok){ reveal(true); return; }
+      var z = $('#zone'); z.classList.add('bad');
+      $$('.tile', z).forEach(function(b,p){ if(placed[p] !== it.a[p]) b.classList.add('wrong'); });
+      if(G && !reduce) G.fromTo(z, {x:-10}, {x:0, duration:.6, ease:'elastic.out(1.2,.25)'});
+      var verbPos = placed.indexOf(it.a[1]);
+      var hint = verbPos !== 1 ? 'Глагол сейчас на ' + (verbPos+1) + '-м месте. Ему нужно второе.' : 'Глагол на месте. Проверь, кто стоит первым и что уехало в конец.';
+      var e = $('#exx'); e.className = 'exx show bad'; e.innerHTML = '<b>Почти.</b> ' + hint + ' Нажми на слово в рамке, чтобы вернуть его.';
+    }
+    function reveal(ok, shown){
+      var it = EX[qi];
+      if(res[qi] === undefined) res[qi] = ok && tries === 1;
+      placed = it.a.slice(); $('#pool').style.display = 'none';
+      zone(true); var z = $('#zone'); z.classList.add(ok ? 'ok' : 'bad');
+      $$('#exCheck,#exReset,#exShow', box).forEach(function(b){ b.remove(); });
+      var s = sentence(it), e = $('#exx');
+      e.className = 'exx show';
+      e.innerHTML = '<div class="de"><span>' + s + '</span><button class="say" data-say="' + s + '" aria-label="Послушать"><svg><use href="#spk"/></svg></button></div>' + (ok ? '<b>Верно.</b> ' : '<b>Смотри.</b> ') + it.x;
+      var nb = document.createElement('button'); nb.type = 'button'; nb.className = 'btn sm'; nb.style.marginTop = '14px';
+      nb.innerHTML = qi < EX.length-1 ? 'Дальше <svg class="ic"><use href="#i-arrow-right"/></svg>' : 'Результат <svg class="ic"><use href="#i-trophy"/></svg>';
+      nb.onclick = function(){ qi++; qi < EX.length ? draw() : done(); };
+      e.appendChild(nb);
+      $('.exbar', box).outerHTML = bar();
+      say(s);
+      if(G && !reduce){ G.from($$('.tile', z), {y:-14, scale:.85, duration:.5, ease:'back.out(3)', stagger:.06}); }
+      if(ok) confetti(box, 14);
+    }
+    function done(){
+      var s = res.filter(Boolean).length;
+      var msg = s === 5 ? 'Пять из пяти с первой попытки. Кассирша в Spar тобой гордится.' : s >= 3 ? 'Хорошо. Ошибки там, где глагол из двух частей. Перечитай шаг 3.' : 'Нормально для первого раза. Пролистай шпаргалку и собери ещё раз.';
+      box.innerHTML = bar() + '<div class="score">' + s + '<small>/5</small></div><p class="exr" style="text-align:center;margin-top:10px">с первой попытки</p><p style="text-align:center;font-weight:600;margin:12px auto 0;max-width:34ch">' + msg + '</p><div class="exbtns" style="justify-content:center"><button type="button" class="btn sm" id="exAgain"><svg class="ic"><use href="#i-repeat"/></svg> Ещё раз</button><a class="btn sm ghost" href="#sum">Шпаргалка</a></div>';
+      $('#exAgain').onclick = function(){ qi = 0; res = []; draw(); };
+      if(G && !reduce){ G.from('.score', {scale:.3, rotation:-20, duration:1, ease:'elastic.out(1,.4)'}); confetti(box, 10 + s*8); }
+    }
+    draw();
+    $('#ansList').innerHTML = EX.map(function(it,i){ var s = sentence(it); return '<p><b>' + (i+1) + '. ' + s + '</b> <button class="say" style="width:28px;height:28px;vertical-align:middle" data-say="' + s + '" aria-label="Послушать"><svg><use href="#spk"/></svg></button><br>' + it.x + '</p>'; }).join('');
+  })();
+
+  /* ---------- owl scroll rail ---------- */
+  (function(){
+    var rail = $('#rail'), owl = $('#rowl'), fill = $('#rfill'), pct = $('#rpct'), ids = ['story','route','s1','s2','s3','s4','s5','video','ex','faq','sum'];
+    var names = {story:'История', route:'Маршрут', s1:'Шаг 1 · Что это', s2:'Шаг 2 · Структура', s3:'Шаг 3 · Рамка', s4:'Шаг 4 · Вопросы', s5:'Шаг 5 · Восклицания', video:'Видео', ex:'Упражнение', faq:'FAQ', sum:'Итог'};
+    var dots = ids.map(function(id){ var a = document.createElement('a'); a.className = 'rdot'; a.href = '#' + id; a.tabIndex = -1; a.innerHTML = '<span>' + names[id] + '</span>'; rail.appendChild(a); return a; });
+    var H = 1, tilt = G ? G.quickTo($('svg', owl), 'rotation', {duration:.4, ease:'power3'}) : null, last = 0, mv = null;
+    function layout(){
+      H = rail.clientHeight; var max = document.documentElement.scrollHeight - innerHeight;
+      ids.forEach(function(id,i){ var s = document.getElementById(id); dots[i].style.top = Math.min(1, Math.max(0, (s.offsetTop - innerHeight*.3) / max)) * 100 + '%'; });
+      upd();
+    }
+    function upd(){
+      var max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      owl.style.transform = 'translateY(' + (p * H) + 'px)';
+      fill.style.height = (p * 100) + '%';
+      pct.textContent = Math.round(p * 100) + '%';
+      dots.forEach(function(d){ d.classList.toggle('on', parseFloat(d.style.top)/100 <= p + .002); });
+      var v = scrollY - last; last = scrollY;
+      if(tilt && !reduce) tilt(Math.max(-25, Math.min(25, v * .8)));
+      rail.classList.add('moving'); clearTimeout(mv); mv = setTimeout(function(){ rail.classList.remove('moving'); if(tilt) tilt(0); }, 700);
+    }
+    var raf = 0;
+    window.addEventListener('scroll', function(){ if(!raf) raf = requestAnimationFrame(function(){ raf = 0; upd(); }); }, {passive:true});
+    window.addEventListener('resize', layout);
+    window.addEventListener('load', layout);
+    layout();
+  })();
+
+  if(G){ window.addEventListener('load', function(){ ScrollTrigger.refresh(); }); if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); }); }
+}
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', invInit); else invInit();
+</script>
+
+</body>
+</html>
